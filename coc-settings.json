@@ -1,0 +1,18 @@
+{
+    "suggest.noselect": true,
+    "suggest.enablePreselect": false,
+    "codeLens.enable": true,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "json",
+        "python"
+        // "c",
+        //"cpp"
+    ],
+    "snippets.ultisnips.directories": [
+        "$HOME/.config/nvim/plugged/vim-snippets/UltiSnips/",
+        // 用户自定义代码片段
+        "$HOME/.config/nvim/Ultisnips/"
+    ],
+    // 对vetur进行配置
+    "vetur.ignoreProjectWarning": true
+}
