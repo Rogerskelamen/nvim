@@ -102,12 +102,14 @@ func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c'
 		exec "!gcc % -o %<"
-		exec "!time ./%<"
+        :sp
+        :res -5
+        :term ./%<
 	elseif &filetype == 'cpp'
 		set splitbelow
 		exec "!g++ -std=c++11 % -Wall -o %<"
 		:sp
-		:res -15
+		:res -5
 		:term ./%<
 	elseif &filetype == 'java'
 		set splitbelow
@@ -339,7 +341,7 @@ call plug#end()
 
 " startify的配置
 let g:startify_custom_header =
-       \ startify#pad(split(system('figlet -f slant VIM 2021'), '\n'))
+       \ startify#pad(split(system('figlet -f slant NEOVIM 2021'), '\n'))
 " 配合NerdTree的配置
 let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 
@@ -373,9 +375,11 @@ endfunction
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+" 跳到下一个错误的位置
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
+" 找到函数定义等
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
