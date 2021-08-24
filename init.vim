@@ -287,7 +287,6 @@ endif
 
 
 
-
 " ======================
 " === All My Plugin ====
 " ======================
@@ -296,8 +295,8 @@ call plug#begin('~/.config/nvim/plugged')
 " airline - a beautiful statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'mattn/webapi-vim'
-Plug 'Wildog/airline-weather.vim'
+" Plug 'mattn/webapi-vim'
+" Plug 'Wildog/airline-weather.vim'
 
 " File navigation
 Plug 'junegunn/fzf.vim'
@@ -385,7 +384,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-nnoremap <silent> <LEADER>h :call <SID>show_documentation()<CR>
+nnoremap <silent> <C-h> :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
