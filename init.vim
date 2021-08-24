@@ -162,7 +162,7 @@ set lazyredraw "same as above
 set visualbell
 " set colorcolumn=100
 set virtualedit=block
-make the cursor go back to the last place since the file closed
+" make the cursor go back to the last place since the file closed
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 
