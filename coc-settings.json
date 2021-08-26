@@ -47,5 +47,23 @@
     "diagnostic.hintSign": "\uf864",
     // 对vetur进行配置
     "vetur.ignoreProjectWarning": true,
-    "coc.preferences.extensionUpdateCheck": "daily"
+    // 更新的频率
+    "coc.preferences.extensionUpdateCheck": "daily",
+    // 对python-jedi进行配置
+    "jedi.enable": true,
+    "jedi.startupMessage": false,
+    "jedi.markupKindPreferred": "plaintext",
+    "jedi.executable.command": "jedi-language-server",
+    "jedi.hover.enable": true,
+    "jedi.diagnostics.enable": true,
+    "jedi.diagnostics.didOpen": true,
+    "jedi.diagnostics.didChange": true,
+    "jedi.diagnostics.didSave": true,
+    "jedi.workspace.symbols.ignoreFolders": [
+        ".nox",
+        ".tox",
+        ".venv",
+        "__pycache__",
+        "venv"
+    ]
 }

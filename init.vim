@@ -135,7 +135,8 @@ func! CompileRunGcc()
 	elseif &filetype == 'javascript'
 		set splitbelow
 		:sp
-		:term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+		" :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+        :term node %
 	elseif &filetype == 'go'
 		set splitbelow
 		:sp
@@ -424,8 +425,8 @@ nnoremap <LEADER>g= :GitGutterNextHunk<CR>
 " =========================
 " ===== 设置NerdTree ======
 " =========================
-map <C-b> :NERDTreeMirror<CR>
-map <C-b> :NERDTreeToggle<CR>
+noremap <C-i> :NERDTreeMirror<CR>
+noremap <C-i> :NERDTreeToggle<CR>
 :let g:NERDTreeWinSize=25
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif " 如果是最后一个窗口就关闭nerdTree
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif  " 如果是最后一个标签就关闭nerdTree
