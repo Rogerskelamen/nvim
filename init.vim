@@ -218,8 +218,8 @@ exec "nohlsearch"
 set incsearch
 set ignorecase
 set smartcase
-noremap _ nzz
-noremap + Nzz
+" noremap _ nzz
+" noremap + Nzz
 
 "-------------------------------------
 " text formatting/layout
@@ -240,6 +240,9 @@ set formatoptions-=tc
 set splitright
 set splitbelow
 syntax on
+
+" set different filetype indent behavior
+autocmd FileType html,vue setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " 配色方案
 "colorscheme Monokai
@@ -418,7 +421,7 @@ let g:gitgutter_sign_removed_first_line = '▔'
 let g:gitgutter_sign_modified_removed = '▒'
 " autocmd BufWritePost * GitGutter
 nnoremap <LEADER>gf :GitGutterFold<CR>
-nnoremap H :GitGutterPreviewHunk<CR>
+nnoremap <LEADER>H :GitGutterPreviewHunk<CR>
 nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
 nnoremap <LEADER>g= :GitGutterNextHunk<CR>
 
