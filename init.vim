@@ -188,8 +188,8 @@ filetype plugin indent on
 " set mouse=a       " 设置是否可用鼠标
 set encoding=utf-8
 let &t_ut=''
-set scrolloff=5  " 上下滚动间隔距离为5行
 set autochdir
+set scrolloff=5  " 上下滚动间隔距离为5行
 noremap <leader>w :%s/\s\+$//<cr>:let @/=''<CR>
 
 
@@ -242,7 +242,7 @@ set splitbelow
 syntax on
 
 " set different filetype indent behavior
-autocmd FileType html,vue setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType html,vue,css setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " 配色方案
 "colorscheme Monokai
