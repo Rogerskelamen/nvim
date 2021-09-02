@@ -16,7 +16,7 @@
 " basic mapping, 空格为leader键
 "------------------------------
 let mapleader=" "
-noremap ; :
+" noremap ; :
 noremap <LEADER><CR> :nohlsearch<CR>
 " map <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4i
 
@@ -330,10 +330,13 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 Plug 'preservim/nerdcommenter'
-Plug 'othree/html5.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'majutsushi/tagbar'
 " Plug 'gko/vim-coloresque'   " 展示css的颜色
+
+" html enhance
+Plug 'mattn/emmet-vim'
+Plug 'othree/html5.vim'
 
 Plug 'PascalZh/vim-badapple'
 " Plug 'godlygeek/tabular'
@@ -424,6 +427,13 @@ nnoremap <LEADER>gf :GitGutterFold<CR>
 nnoremap <LEADER>H :GitGutterPreviewHunk<CR>
 nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
 nnoremap <LEADER>g= :GitGutterNextHunk<CR>
+
+
+" config about emmet
+let g:user_emmet_leader_key='<C-m>'
+" notice that you still need ,
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,vue EmmetInstall
 
 " =========================
 " ===== 设置NerdTree ======
