@@ -18,7 +18,6 @@
 let mapleader=" "
 " noremap ; :
 noremap <LEADER><CR> :nohlsearch<CR>
-" map <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4i
 
 "----------------------------
 " 普通键位映射
@@ -335,7 +334,7 @@ Plug 'majutsushi/tagbar'
 " Plug 'gko/vim-coloresque'   " 展示css的颜色
 
 " html enhance
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
 
 Plug 'PascalZh/vim-badapple'
@@ -430,10 +429,10 @@ nnoremap <LEADER>g= :GitGutterNextHunk<CR>
 
 
 " config about emmet
-let g:user_emmet_leader_key='<C-m>'
+" let g:user_emmet_leader_key='<C-m>'
 " notice that you still need ,
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,vue EmmetInstall
+" let g:user_emmet_install_global = 0
+" autocmd FileType html,css,vue EmmetInstall
 
 " =========================
 " ===== 设置NerdTree ======
