@@ -101,9 +101,9 @@ func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c'
 		exec "!gcc % -o %<"
-        :sp
-        :res -5
-        :term ./%<
+		:sp
+		:res -5
+		:term ./%<
 	elseif &filetype == 'cpp'
 		set splitbelow
 		exec "!g++ -std=c++11 % -Wall -o %<"
@@ -122,7 +122,7 @@ func! CompileRunGcc()
 		:sp
 		:term python3 %
 	elseif &filetype == 'html'
-		silent! exec "!".g:mkdp_browser." % &"
+		silent! exec "!open %"
 	elseif &filetype == 'markdown'
 		exec "InstantMarkdownPreview"
 	elseif &filetype == 'tex'
@@ -135,7 +135,7 @@ func! CompileRunGcc()
 		set splitbelow
 		:sp
 		" :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
-        :term node %
+		:term node %
 	elseif &filetype == 'go'
 		set splitbelow
 		:sp
@@ -151,7 +151,7 @@ set exrc
 set secure
 set noexpandtab
 set list
-set listchars=tab:\|\ ,trail:▫  " 设置空格和层次结构
+set listchars=tab:\|\ ,trail:▫  " 设置空格和层次结构,如果此时需要输入真正的tab，则输入Ctrl+V, tab，在windows下是Ctrl+Q, tab
 set ttimeoutlen=0
 set notimeout
 set viewoptions=cursor,folds,slash,unix
@@ -169,10 +169,11 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " ===
 " === Terminal Behaviors
 " ===
-" let g:neoterm_autoscroll = 1
-" autocmd TermOpen term://* startinsert
-" tnoremap <C-N> <C-\><C-N>
-" tnoremap <C-O> <C-\><C-N><C-O>
+let g:neoterm_autoscroll = 1
+autocmd TermOpen term://* startinsert   " 打开终端之后直接进入写入
+" 快速回到普通模式(normal)
+tnoremap <C-N> <C-\><C-N>
+tnoremap <C-O> <C-\><C-N><C-O>
 
 "----------------------------
 " 全局的部分设置
@@ -380,7 +381,7 @@ endfunction
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" 跳到下一个错误的位置
+" 跳到上下一个错误的位置
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 

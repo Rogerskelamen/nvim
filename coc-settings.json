@@ -13,6 +13,10 @@
         // 用户自定义代码片段
         "$HOME/.config/nvim/Ultisnips/"
     ],
+    // 对clangd的配置
+    "clangd.fallbackFlags": [
+        "pkg-config --cflags gtk+-3.0"
+    ],
     // 设置提示的icon
     "suggest.completionItemKindLabels": {
         "class": "\uf0e8",
