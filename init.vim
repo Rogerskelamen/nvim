@@ -105,7 +105,7 @@ func! CompileRunGcc()
 		:res -5
 		:term ./%<
 	elseif &filetype == 'cpp'
-		set splitbelow
+		" set splitbelow
 		exec "!g++ -std=c++11 % -Wall -o %<"
 		:sp
 		:res -5
@@ -242,7 +242,7 @@ set splitbelow
 syntax on
 
 " set different filetype indent behavior
-autocmd FileType html,vue,css setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType html,vue,css,javascript setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " 配色方案
 "colorscheme Monokai
@@ -325,7 +325,6 @@ Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
-" Plug 'frazrepo/vim-rainbow'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
@@ -338,7 +337,9 @@ Plug 'majutsushi/tagbar'
 " Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
 
+" tool things
 Plug 'PascalZh/vim-badapple'
+Plug 'azadkuh/vim-cmus'
 " Plug 'godlygeek/tabular'
 " Plug 'w0rp/ale'
 
