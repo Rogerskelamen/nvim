@@ -197,7 +197,7 @@ noremap <leader>w :%s/\s\+$//<cr>:let @/=''<CR>
 " Vim UI
 "------------------------------
 set number
-set relativenumber
+"set relativenumber
 set cursorline
 set wrap
 set wildmenu
