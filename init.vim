@@ -304,6 +304,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " File navigation
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf' }
 
 " Nerdtree
 Plug 'preservim/nerdtree'
@@ -313,6 +314,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " markdown
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'joker1007/vim-markdown-quote-syntax'
 " Plug 'plasticboy/vim-markdown'
 
 " git
@@ -351,6 +353,11 @@ let g:startify_custom_header =
        \ startify#pad(split(system('figlet -f slant NEOVIM 2021'), '\n'))
 " 配合NerdTree的配置
 let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
+
+" fzf设置
+" let g: fzf_preview_window = [ ' right:50% ' , ' ctrl-/ ' ]
+noremap <LEADER>f :Files<CR>
+
 
 " ========================
 " coc配置
@@ -585,13 +592,13 @@ nmap tt :TagbarToggle<CR>
 let g:tagbar_width = 26
 let g:airline#extensions#tagbar#enabled = 1
 let g:tagbar_type_markdown = {
-    \ 'ctagstype' : 'markdown',
-    \ 'kinds' : [
-        \ 'h:Chapter',
-        \ 'i:Section',
-        \ 'k:Paragraph',
-        \ 'j:Subparagraph'
-    \ ]
+            \ 'ctagstype' : 'markdown',
+            \ 'kinds' : [
+                \ 'h:headings',
+                \ 'l:links',
+                \ 'i:images'
+            \ ],
+    \ "sort" : 0
 \ }
 
 
@@ -611,6 +618,11 @@ autocmd Filetype markdown noremap ,k a<kbd></kbd><Esc>5hi
 set conceallevel=2
 let g:tex_conceal = ""
 let g:vim_markdown_math = 1
+
+" markdown-quote-syntax-highlight配置
+" Add syntax rule
+" Add other file types in which quote syntax should be on.
+let g:markdown_quote_syntax_on_filetypes = ['text']
 
 
 " vim-table-mode配置
