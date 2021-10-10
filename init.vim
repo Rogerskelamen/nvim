@@ -415,7 +415,7 @@ imap <C-l> <Plug>(coc-snippets-expand)
 vmap <C-e> <Plug>(coc-snippets-select)
 let g:coc_snippet_next = '<c-m>'
 let g:coc_snippet_prev = '<c-n>'
-    
+
 
 " ==
 " == GitGutter
