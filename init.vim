@@ -328,7 +328,9 @@ Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
 
+" code edit
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'pangloss/vim-javascript'
 Plug 'honza/vim-snippets'
 Plug 'preservim/nerdcommenter'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -600,6 +602,12 @@ let g:tagbar_type_markdown = {
             \ ],
     \ "sort" : 0
 \ }
+
+
+" ====================
+"   javascript配置
+" ====================
+let g:javascript_plugin_jsdoc = 1
 
 
 " +++++++++++++++++++++++
