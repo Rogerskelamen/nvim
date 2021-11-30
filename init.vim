@@ -245,13 +245,13 @@ syntax on
 autocmd FileType html,vue,css,javascript setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " 配色方案
-"colorscheme Monokai
-"colorscheme woju
-"colorscheme material
-"colorscheme tender
-"colorscheme termschool
+" colorscheme Monokai
+" colorscheme woju
+" colorscheme material
+" colorscheme tender
+" colorscheme termschool
 colorscheme neodark
-"set background=dark " for the dark version
+" set background=dark " for the dark version
 "set background=light " for the light version
 
 
