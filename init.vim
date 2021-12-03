@@ -242,7 +242,7 @@ set splitbelow
 syntax on
 
 " set different filetype indent behavior
-autocmd FileType html,vue,css,javascript setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType html,css,javascript,vue,markdown setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " 配色方案
 "colorscheme Monokai
@@ -303,6 +303,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'Wildog/airline-weather.vim'
 
 " File navigation
+Plug 'kevinhwang91/rnvimr'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf' }
 
@@ -356,9 +357,15 @@ let g:startify_custom_header =
 " 配合NerdTree的配置
 let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 
+
+" ===
+" ==== file Navigation
+" ===
 " fzf设置
 " let g: fzf_preview_window = [ ' right:50% ' , ' ctrl-/ ' ]
 noremap <LEADER>f :Files<CR>
+" ranger
+noremap <LEADER>r :RnvimrToggle<CR>
 
 
 " ========================
@@ -367,6 +374,23 @@ noremap <LEADER>f :Files<CR>
 set hidden
 set updatetime=100
 set shortmess+=c
+
+let g:coc_global_extensions = [
+    \ 'coc-yank',
+    \ 'coc-vimlsp',
+    \ 'coc-syntax',
+    \ 'coc-snippets',
+    \ 'coc-marketplace',
+    \ 'coc-json',
+    \ 'coc-html',
+    \ 'coc-vetur',
+    \ 'coc-tsserver',
+    \ 'coc-jedi',
+    \ 'coc-java',
+    \ 'coc-go',
+    \ 'coc-css',
+    \ 'coc-clangd'
+\ ]
 
 if has("nvim-0.5.0") || has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
@@ -481,6 +505,7 @@ let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
 let g:NERDSpaceDelims=1
 autocmd filetype python let g:NERDSpaceDelims=0
 
+
 " rainbow的配置项
 let g:rainbow_active = 1
 " let g:rainbow_load_separately = [
@@ -523,7 +548,10 @@ let g:rainbow_conf = {
 au Filetype FILETYPE let b:AutoPairs = {"(": ")"}
 au FileType php      let b:AutoPairs = AutoPairsDefine({'<?' : '?>', '<?php': '?>'})
 
+
+" ===================
 " airline bar config
+" ===================
 let g:airline_theme='atomic'
 " let g:airline_theme='angr'
 " let g:airline_theme='bubblegum'
