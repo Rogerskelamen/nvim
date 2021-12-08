@@ -105,7 +105,6 @@ func! CompileRunGcc()
 		:res -5
 		:term ./%<
 	elseif &filetype == 'cpp'
-		" set splitbelow
 		exec "!g++ -std=c++11 % -Wall -o %<"
 		:sp
 		:res -5
@@ -331,15 +330,16 @@ Plug 'jiangmiao/auto-pairs'
 
 " code edit
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'pangloss/vim-javascript'
 Plug 'honza/vim-snippets'
 Plug 'preservim/nerdcommenter'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'majutsushi/tagbar'
 " Plug 'gko/vim-coloresque'   " 展示css的颜色
 
-" html enhance
+" frontend enhance
 " Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/html5.vim'
 
 " tool things
@@ -459,8 +459,16 @@ let g:gitgutter_sign_modified_removed = '▒'
 " autocmd BufWritePost * GitGutter
 nnoremap <LEADER>gf :GitGutterFold<CR>
 nnoremap <LEADER>H :GitGutterPreviewHunk<CR>
-nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
-nnoremap <LEADER>g= :GitGutterNextHunk<CR>
+nnoremap g- :GitGutterPrevHunk<CR>
+nnoremap g= :GitGutterNextHunk<CR>
+
+
+" javascript-libraries-syntax config
+autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
 
 
 " config about emmet
