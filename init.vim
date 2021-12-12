@@ -244,14 +244,65 @@ syntax on
 autocmd FileType html,css,javascript,vue,markdown setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " 配色方案
-"colorscheme Monokai
-"colorscheme woju
-"colorscheme material
-"colorscheme tender
-"colorscheme termschool
-colorscheme neodark
-"set background=dark " for the dark version
-"set background=light " for the light version
+" set background=dark " for the dark version
+" set background=light " for the light version
+
+" for material colorscheme config
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'palenight'
+colorscheme material
+
+" for onedark colorscheme config
+" let g:onedark_terminal_italics = 1
+" colorscheme onedark
+
+" neodark colorscheme config
+" let g:neodark#background = '#202020'
+" let g:neodark#terminal_transparent = 1 " default: 0
+" let g:neodark#use_256color = 1 " default: 0
+" colorscheme neodark
+
+" for seoul256 colorscheme config
+" colorscheme seoul256
+
+" for nova colorscheme config
+" let g:nova_transparent = 1
+" colorscheme nova
+
+" for cosmic_latte colorscheme config
+" if strftime('%H') >= 7 && strftime('%H') < 19
+	" set background=light
+	" let g:airline_theme='cosmic_latte_light'
+" else
+	" set background=dark
+	" let g:airline_theme='cosmic_latte_dark'
+" endif
+" colorscheme cosmic_latte
+
+" =========================
+" set for airline theme
+let g:airline_theme='material'
+" let g:airline_theme='onedark'
+" let g:airline_theme='nova'
+" let g:airline_theme='atomic'
+" let g:airline_theme='bubblegum'
+
+
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+	if (has("nvim"))
+		"For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+		let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+	endif
+	"For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+	"Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+	" < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+	if (has("termguicolors"))
+		set termguicolors
+	endif
+endif
 
 
 " 设置背景透明度
@@ -267,14 +318,14 @@ hi Normal ctermfg=252 ctermbg=none
 "let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 
 if has("autocmd")
-  au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
-  au InsertEnter,InsertChange *
-    \ if v:insertmode == 'i' |
-    \   silent execute '!echo -ne "\e[5 q"' | redraw! |
-    \ elseif v:insertmode == 'r' |
-    \   silent execute '!echo -ne "\e[3 q"' | redraw! |
-    \ endif
-  au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+	au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
+	au InsertEnter,InsertChange *
+		\ if v:insertmode == 'i' |
+		\   silent execute '!echo -ne "\e[5 q"' | redraw! |
+		\ elseif v:insertmode == 'r' |
+		\   silent execute '!echo -ne "\e[3 q"' | redraw! |
+		\ endif
+	au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 endif
 
 "Cursor settings:
@@ -324,9 +375,17 @@ Plug 'cohama/agit.vim'
 
 " colourful
 Plug 'luochen1990/rainbow'
-Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
+Plug 'sheerun/vim-polyglot'  " 设置语法高亮和自动缩进
+
+" My beautiful colorscheme
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'joshdick/onedark.vim'
+Plug 'KeitaNakamura/neodark.vim'
+Plug 'trevordmiller/nova-vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'haystackandroid/cosmic_latte'
 
 " code edit
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -343,6 +402,7 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/html5.vim'
 
 " tool things
+Plug 'mhinz/vim-startify'
 Plug 'PascalZh/vim-badapple'
 Plug 'azadkuh/vim-cmus'
 " Plug 'godlygeek/tabular'
@@ -353,7 +413,7 @@ call plug#end()
 
 " startify的配置
 let g:startify_custom_header =
-       \ startify#pad(split(system('figlet -f slant NEOVIM 2021'), '\n'))
+			\ startify#pad(split(system('figlet -f slant NEOVIM 2021'), '\n'))
 " 配合NerdTree的配置
 let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 
@@ -376,44 +436,44 @@ set updatetime=100
 set shortmess+=c
 
 let g:coc_global_extensions = [
-    \ 'coc-yank',
-    \ 'coc-vimlsp',
-    \ 'coc-syntax',
-    \ 'coc-snippets',
-    \ 'coc-marketplace',
-    \ 'coc-json',
-    \ 'coc-html',
-    \ 'coc-vetur',
-    \ 'coc-tsserver',
-    \ 'coc-jedi',
-    \ 'coc-java',
-    \ 'coc-go',
-    \ 'coc-css',
-    \ 'coc-clangd'
-\ ]
+			\ 'coc-yank',
+			\ 'coc-vimlsp',
+			\ 'coc-syntax',
+			\ 'coc-snippets',
+			\ 'coc-marketplace',
+			\ 'coc-json',
+			\ 'coc-html',
+			\ 'coc-vetur',
+			\ 'coc-tsserver',
+			\ 'coc-jedi',
+			\ 'coc-java',
+			\ 'coc-go',
+			\ 'coc-css',
+			\ 'coc-clangd'
+			\ ]
 
 if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
+	" Recently vim can merge signcolumn and number column into one
+	set signcolumn=number
 else
-  set signcolumn=yes
+	set signcolumn=yes
 endif
 
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " 跳到上下一个错误的位置
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -428,13 +488,13 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> <C-h> :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	elseif (coc#rpc#ready())
+		call CocActionAsync('doHover')
+	else
+		execute '!' . &keywordprg . " " . expand('<cword>')
+	endif
 endfunction
 
 imap <C-l> <Plug>(coc-snippets-expand)
@@ -490,17 +550,17 @@ let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreeGitStatusShowIgnored = 1
 let g:NERDTreeGitStatusConcealBrackets = 0
 let g:NERDTreeGitStatusIndicatorMapCustom = {
-                \ 'Modified'  :'✹',
-                \ 'Staged'    :'✚',
-                \ 'Untracked' :'✭',
-                \ 'Renamed'   :'➜',
-                \ 'Unmerged'  :'═',
-                \ 'Deleted'   :'✖',
-                \ 'Dirty'     :'✗',
-                \ 'Ignored'   :'☒',
-                \ 'Clean'     :'✔︎',
-                \ 'Unknown'   :'?',
-                \ }
+			\ 'Modified'  :'✹',
+			\ 'Staged'    :'✚',
+			\ 'Untracked' :'✭',
+			\ 'Renamed'   :'➜',
+			\ 'Unmerged'  :'═',
+			\ 'Deleted'   :'✖',
+			\ 'Dirty'     :'✗',
+			\ 'Ignored'   :'☒',
+			\ 'Clean'     :'✔︎',
+			\ 'Unknown'   :'?',
+			\ }
 
 " nerdtree和vim-devicons联动
 let g:webdevicons_conceal_nerdtree_brackets=1
@@ -526,25 +586,25 @@ let g:rainbow_active = 1
 " let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 " 使rainbow在NERDTree中不起作用
 let g:rainbow_conf = {
-\       'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-\       'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-\       'operators': '_,_',
-\       'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-\       'separately': {
-\           '*': {},
-\	    	'tex': {
-\	    		'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-\	    	},
-\	    	'lisp': {
-\	    		'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-\	    	},
-\	    	'vim': {
-\	    		'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-\	    	},
-\	    	'css': 0,
-\	    	'nerdtree': 0,
-\	}
-\}
+			\       'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+			\       'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+			\       'operators': '_,_',
+			\       'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+			\       'separately': {
+				\           '*': {},
+				\	    	'tex': {
+					\	    		'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+					\	    	},
+					\	    	'lisp': {
+						\	    		'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+						\	    	},
+						\	    	'vim': {
+							\	    		'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+							\	    	},
+							\	    	'css': 0,
+							\	    	'nerdtree': 0,
+							\	}
+							\}
 " let g:rainbow_conf = {
 " \	'separately': {
 " \		'nerdtree': 0,
@@ -560,16 +620,13 @@ au FileType php      let b:AutoPairs = AutoPairsDefine({'<?' : '?>', '<?php': '?
 " ===================
 " airline bar config
 " ===================
-let g:airline_theme='atomic'
-" let g:airline_theme='angr'
-" let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts = 1
 " let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_detect_spell=1
 set laststatus=2  "永远显示状态栏
 " airline的所有符号设置
 if !exists('g:airline_symbols')
-    let g:airline_symbols={}
+	let g:airline_symbols={}
 endif
 " unicode symbols
 let g:airline_left_sep = ''
@@ -604,25 +661,25 @@ let g:weather#area = 'wuhan,china'
 let g:weather#unit = 'metric'
 " let g:weather#format = '%s %.0f'
 let g:weather#status_map = {
-  \ "01d": "",
-  \ "02d": "",
-  \ "03d": "",
-  \ "04d": "☁",
-  \ "09d": "☂",
-  \ "10d": "",
-  \ "11d": "⚡",
-  \ "13d": "",
-  \ "50d": "",
-  \ "01n": "☽",
-  \ "02n": "",
-  \ "03n": "",
-  \ "04n": "☁",
-  \ "09n": "☂",
-  \ "10n": "",
-  \ "11n": "⚡",
-  \ "13n": "",
-  \ "50n": "",
-  \}
+			\ "01d": "",
+			\ "02d": "",
+			\ "03d": "",
+			\ "04d": "☁",
+			\ "09d": "☂",
+			\ "10d": "",
+			\ "11d": "⚡",
+			\ "13d": "",
+			\ "50d": "",
+			\ "01n": "☽",
+			\ "02n": "",
+			\ "03n": "",
+			\ "04n": "☁",
+			\ "09n": "☂",
+			\ "10n": "",
+			\ "11n": "⚡",
+			\ "13n": "",
+			\ "50n": "",
+			\}
 
 
 " Tagbar配置
@@ -630,14 +687,14 @@ nmap tt :TagbarToggle<CR>
 let g:tagbar_width = 26
 let g:airline#extensions#tagbar#enabled = 1
 let g:tagbar_type_markdown = {
-            \ 'ctagstype' : 'markdown',
-            \ 'kinds' : [
-                \ 'h:headings',
-                \ 'l:links',
-                \ 'i:images'
-            \ ],
-    \ "sort" : 0
-\ }
+			\ 'ctagstype' : 'markdown',
+			\ 'kinds' : [
+				\ 'h:headings',
+				\ 'l:links',
+				\ 'i:images'
+				\ ],
+				\ "sort" : 0
+				\ }
 
 
 " ====================
@@ -673,18 +730,18 @@ let g:markdown_quote_syntax_on_filetypes = ['text']
 autocmd Filetype markdown map <LEADER>t :TableModeToggle<CR>
 " use || or __ enable table mode
 function! s:isAtStartOfLine(mapping)
-  let text_before_cursor = getline('.')[0 : col('.')-1]
-  let mapping_pattern = '\V' . escape(a:mapping, '\')
-  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
-  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
+	let text_before_cursor = getline('.')[0 : col('.')-1]
+	let mapping_pattern = '\V' . escape(a:mapping, '\')
+	let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
+	return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
 endfunction
 
 inoreabbrev <expr> <bar><bar>
-          \ <SID>isAtStartOfLine('\|\|') ?
-          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+			\ <SID>isAtStartOfLine('\|\|') ?
+			\ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
 inoreabbrev <expr> __
-          \ <SID>isAtStartOfLine('__') ?
-          \ '<c-o>:silent! TableModeDisable<cr>' : '__'
+			\ <SID>isAtStartOfLine('__') ?
+			\ '<c-o>:silent! TableModeDisable<cr>' : '__'
 
 
 " ===

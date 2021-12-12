@@ -14,10 +14,10 @@
         "$HOME/.config/nvim/Ultisnips/"
     ],
     // 对clangd的配置
-    "clangd.fallbackFlags": [
-        "pkg-config --cflags gtk+-3.0"
-    ],
-    // 设置提示的icon
+    // "clangd.fallbackFlags": [
+        // "pkg-config --cflags gtk+-3.0"
+    // ],
+    // 补全提示设置的icon
     "suggest.completionItemKindLabels": {
         "class": "\uf0e8",
         "color": "\ue22b",
@@ -45,13 +45,14 @@
         "value": "\uf89f",
         "variable": "\ue71b"
     },
+    // 自检时设置的icon
     "diagnostic.errorSign": "\uf467",
     "diagnostic.warningSign": "\uf071",
     "diagnostic.infoSign": "\uf129",
     "diagnostic.hintSign": "\uf864",
     // 对vetur进行配置
     "vetur.ignoreProjectWarning": true,
-    // 更新的频率
+    // coc更新的频率
     "coc.preferences.extensionUpdateCheck": "daily",
     // 对python-jedi进行配置
     "jedi.enable": true,
