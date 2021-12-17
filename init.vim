@@ -12,6 +12,12 @@
 " author: @Rogerskelamen
 
 
+" ==============
+" 设置polyglot
+" ==============
+let g:polyglot_disabled = ['markdown']    " 禁用polyglot在markdown中的使用
+
+
 "------------------------------
 " basic mapping, 空格为leader键
 "------------------------------
@@ -49,6 +55,7 @@ noremap sj <C-w>t<C-w>K
 
 " Open the vimrc file anytime
 noremap <LEADER>rc :e $HOME/.config/nvim/init.vim<CR>
+noremap <LEADER>sc :set spell!<CR>
 
 " tab set
 noremap tu :tabe<CR>j
@@ -56,7 +63,6 @@ noremap th :-tabnext<CR>
 noremap tl :+tabnext<CR>
 noremap tmh :-tabmove<CR>
 noremap tml :+tabmove<CR>
-noremap <LEADER>sc :set spell!<CR>
 
 " Copy to system clipboard
 vnoremap Y "+y
@@ -69,7 +75,7 @@ nnoremap < <<
 nnoremap > >>
 
 " clipboard history
-nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+nnoremap <silent> <LEADER>y  :<C-u>CocList -A --normal yank<cr>
 
 " Folding
 noremap <silent> <LEADER>o za
@@ -177,7 +183,7 @@ tnoremap <C-O> <C-\><C-N><C-O>
 "----------------------------
 " 全局的部分设置
 "----------------------------
-set enc=utf8
+set encoding=utf-8
 set fencs=utf8,gbk,gb2312,gb1803
 set nocompatible
 filetype on
@@ -185,7 +191,6 @@ filetype indent on
 filetype plugin on
 filetype plugin indent on
 " set mouse=a       " 设置是否可用鼠标
-set encoding=utf-8
 let &t_ut=''
 set autochdir
 set scrolloff=5  " 上下滚动间隔距离为5行
@@ -393,7 +398,6 @@ Plug 'honza/vim-snippets'
 Plug 'preservim/nerdcommenter'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'majutsushi/tagbar'
-" Plug 'gko/vim-coloresque'   " 展示css的颜色
 
 " frontend enhance
 " Plug 'mattn/emmet-vim'
@@ -413,7 +417,7 @@ call plug#end()
 
 " startify的配置
 let g:startify_custom_header =
-			\ startify#pad(split(system('figlet -f slant NEOVIM 2021'), '\n'))
+	\ startify#pad(split(system('figlet -f slant NEOVIM 2021'), '\n'))
 " 配合NerdTree的配置
 let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 
@@ -687,14 +691,14 @@ nmap tt :TagbarToggle<CR>
 let g:tagbar_width = 26
 let g:airline#extensions#tagbar#enabled = 1
 let g:tagbar_type_markdown = {
-			\ 'ctagstype' : 'markdown',
-			\ 'kinds' : [
-				\ 'h:headings',
-				\ 'l:links',
-				\ 'i:images'
-				\ ],
-				\ "sort" : 0
-				\ }
+	\ 'ctagstype' : 'markdown',
+	\ 'kinds' : [
+		\ 'h:headings',
+		\ 'l:links',
+		\ 'i:images'
+		\ ],
+		\ 'sort' : 0
+		\ }
 
 
 " ====================
