@@ -4,7 +4,7 @@
 
 > Also, this configuration help me to remember the forgotten function. After all, the configuration is so much.
 
-![](https://gitee.com/rogerskelamen/mdpic/raw/master/img/20211216175510.png)
+![](https://raw.githubusercontent.com/Rogerskelamen/nvim/master/images/screenshot.png)
 
 ## Installation
 
