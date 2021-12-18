@@ -133,6 +133,8 @@ There has some other options to choose:
 
 These four has been changed into move 5 lines or 5 columns
 
+<u>use <kbd>m</kbd> to jump to the end or start of the line</u>
+
 ### Windows Open and Move
 
 - `<LEADER>` + movement key
@@ -147,7 +149,7 @@ These four has been changed into move 5 lines or 5 columns
 
   Create a split window, <kbd>v</kbd> for vertical, <kbd>s</kbd> for no vertical
 
-- sv, sj
+- `sv`, `sj`
 
   Change the format of current split window, sv for vertical one, sj for up and down one.
 

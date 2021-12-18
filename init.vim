@@ -38,6 +38,8 @@ noremap H 5h
 noremap J 5j
 noremap K 5k
 noremap L 5l
+noremap <expr>m col(".")==col("$")-1?"^":"$"
+vnoremap <expr>m col(".")==col("$")-1?"^":"$h"
 
 " windows set
 noremap <LEADER>l <C-w>l
@@ -73,6 +75,36 @@ noremap <silent> \v v$h
 " Indentation
 nnoremap < <<
 nnoremap > >>
+
+" add ()""[] around the selected content, press C-l
+vnoremap <expr><C-l> CopyX()."c"
+	\ .AddParenthese(getchar())."<Esc>"
+function CopyX()
+	if( col("v") > col(".") )
+		let l1 = col(".")
+		let l2 = col("v")
+	else
+		let l1 = col("v")
+		let l2 = col(".")
+	endif
+	call setreg('x', getline('.')[l1-1:l2-1])
+	return ''
+endfunction
+
+function AddParenthese(n)
+	if a:n==123
+		return "{".getreg('x')."}"
+	elseif a:n==40
+		return "(".getreg('x').")"
+	elseif a:n==91
+		return "[".getreg('x')."]"
+	elseif a:n==34
+		return "\"".getreg('x')."\""
+	elseif a:n==39
+		return "\'".getreg('x')."\'"
+	endif
+endfunction
+
 
 " clipboard history
 nnoremap <silent> <LEADER>y  :<C-u>CocList -A --normal yank<cr>
