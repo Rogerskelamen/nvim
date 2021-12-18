@@ -32,6 +32,8 @@ noremap H 5h
 noremap J 5j
 noremap K 5k
 noremap L 5l
+noremap <expr>m col(".")==col("$")-1?"^":"$"
+vnoremap <expr>m col(".")==col("$")-1?"^":"$h"
 
 " windows set
 noremap <LEADER>l <C-w>l
@@ -67,6 +69,35 @@ noremap <silent> \v v$h
 " Indentation
 nnoremap < <<
 nnoremap > >>
+
+" add ()""[] around the selected content, press C-l
+vnoremap <expr><C-l> CopyX()."c"
+	\ .AddParenthese(getchar())."<Esc>"
+function CopyX()
+	if( col("v") > col(".") )
+		let l1 = col(".")
+		let l2 = col("v")
+	else
+		let l1 = col("v")
+		let l2 = col(".")
+	endif
+	call setreg('x', getline('.')[l1-1:l2-1])
+	return ''
+endfunction
+
+function AddParenthese(n)
+	if a:n==123
+		return "{".getreg('x')."}"
+	elseif a:n==40
+		return "(".getreg('x').")"
+	elseif a:n==91
+		return "[".getreg('x')."]"
+	elseif a:n==34
+		return "\"".getreg('x')."\""
+	elseif a:n==39
+		return "\'".getreg('x')."\'"
+	endif
+endfunction
 
 " clipboard history
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
@@ -323,24 +354,25 @@ Plug 'cohama/agit.vim'
 
 " colourful
 Plug 'luochen1990/rainbow'
-Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
+Plug 'sheerun/vim-polyglot'  " 设置语法高亮和自动缩进
 
 " code edit
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'pangloss/vim-javascript'
 Plug 'honza/vim-snippets'
 Plug 'preservim/nerdcommenter'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'majutsushi/tagbar'
-" Plug 'gko/vim-coloresque'   " 展示css的颜色
 
-" html enhance
+" frontend enhance
 " Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/html5.vim'
 
 " tool things
+Plug 'mhinz/vim-startify'
 Plug 'PascalZh/vim-badapple'
 Plug 'azadkuh/vim-cmus'
 " Plug 'godlygeek/tabular'
