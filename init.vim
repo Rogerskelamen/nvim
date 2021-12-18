@@ -48,7 +48,7 @@ noremap sv <C-w>t<C-w>H
 noremap sj <C-w>t<C-w>K
 
 " Open the vimrc file anytime
-noremap <LEADER>rc :e $HOME/.config/nvim/init.vim<CR>
+noremap <LEADER>rc :e $HOME/AppData/Local/nvim/init.vim<CR>
 
 " tab set
 noremap tu :tabe<CR>j
@@ -103,13 +103,12 @@ func! CompileRunGcc()
 		exec "!gcc % -o %<"
 		:sp
 		:res -5
-		:term ./%<
+		:term %<
 	elseif &filetype == 'cpp'
-		" set splitbelow
 		exec "!g++ -std=c++11 % -Wall -o %<"
 		:sp
 		:res -5
-		:term ./%<
+		:term %<
 	elseif &filetype == 'java'
 		set splitbelow
 		:sp
@@ -120,11 +119,11 @@ func! CompileRunGcc()
 	elseif &filetype == 'python'
 		set splitbelow
 		:sp
-		:term python3 %
+		:term python %
 	elseif &filetype == 'html'
-		silent! exec "!open %"
+        silent! exec "!explorer %"
 	elseif &filetype == 'markdown'
-		exec "InstantMarkdownPreview"
+        exec "InstantMarkdownPreview"
 	elseif &filetype == 'tex'
 		silent! exec "VimtexStop"
 		silent! exec "VimtexCompile"
@@ -242,7 +241,7 @@ set splitbelow
 syntax on
 
 " set different filetype indent behavior
-autocmd FileType html,vue,css,javascript setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType html,vue,css,javascript,markdown setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " 配色方案
 " colorscheme Monokai
@@ -351,8 +350,8 @@ call plug#end()
 
 
 " startify的配置
-let g:startify_custom_header =
-       \ startify#pad(split(system('figlet -f slant NEOVIM 2021'), '\n'))
+" let g:startify_custom_header =
+       " \ startify#pad(split(system('figlet -f slant NEOVIM 2021'), '\n'))
 " 配合NerdTree的配置
 let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 
@@ -613,6 +612,7 @@ let g:javascript_plugin_jsdoc = 1
 " +++++++++++++++++++++++
 "   markdown的配置项
 " +++++++++++++++++++++++
+let g:instant_markdown_slow = 1  " for windows platform
 let g:instant_markdown_autostart = 0  " not to autostart
 let g:instant_markdown_mathjax = 1  " use latex lang
 
