@@ -113,6 +113,10 @@ There has some other options to choose:
 
   A eye-protected theme (*it changes along with the time, if you don't like the light background, don't turn it on*)
 
+- [snazzy](https://github.com/connorholyday/vim-snazzy)
+
+  You may find all the colorscheme I integrate don't support transparent background, but for this one.
+
 <u>All of these has coded into the `init.vim`, you can turn on one of them by release the certain comment</u>
 
 ### the Cursor

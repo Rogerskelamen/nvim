@@ -316,6 +316,11 @@ colorscheme material
 " endif
 " colorscheme cosmic_latte
 
+" snazzy colorscheme (if you want a transparent colorscheme, this is a good
+" choice)
+" let g:SnazzyTransparent = 1
+" colorscheme snazzy
+
 " =========================
 " set for airline theme
 let g:airline_theme='material'
@@ -343,7 +348,7 @@ endif
 
 
 " 设置背景透明度
-hi Normal ctermfg=252 ctermbg=none
+" hi Normal ctermfg=252 ctermbg=none
 
 " ==============================
 " ========  光标设置 ===========
@@ -423,6 +428,7 @@ Plug 'KeitaNakamura/neodark.vim'
 Plug 'trevordmiller/nova-vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'haystackandroid/cosmic_latte'
+Plug 'connorholyday/vim-snazzy'
 
 " code edit
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
