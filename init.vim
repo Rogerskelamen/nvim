@@ -455,7 +455,7 @@ call plug#end()
 
 " startify的配置
 let g:startify_custom_header =
-	\ startify#pad(split(system('figlet -f slant NEOVIM 2021'), '\n'))
+	\ startify#pad(split(system('figlet -f slant NEOVIM 2022'), '\n'))
 " 配合NerdTree的配置
 let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 
