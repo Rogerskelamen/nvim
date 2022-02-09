@@ -280,7 +280,16 @@ syntax on
 " set different filetype indent behavior
 autocmd FileType html,css,javascript,vue,markdown setlocal shiftwidth=2 softtabstop=2 expandtab
 
-" 配色方案
+
+" ===
+" ===== 配色方案
+" ===
+
+" 设置背景透明度
+" hi Normal ctermfg=252 ctermbg=none
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+
+" 亮暗方案
 " set background=dark " for the dark version
 " set background=light " for the light version
 
@@ -316,11 +325,6 @@ colorscheme material
 " endif
 " colorscheme cosmic_latte
 
-" snazzy colorscheme (if you want a transparent colorscheme, this is a good
-" choice)
-" let g:SnazzyTransparent = 1
-" colorscheme snazzy
-
 " =========================
 " set for airline theme
 let g:airline_theme='material'
@@ -347,8 +351,6 @@ if (empty($TMUX))
 endif
 
 
-" 设置背景透明度
-" hi Normal ctermfg=252 ctermbg=none
 
 " ==============================
 " ========  光标设置 ===========
@@ -428,7 +430,7 @@ Plug 'KeitaNakamura/neodark.vim'
 Plug 'trevordmiller/nova-vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'haystackandroid/cosmic_latte'
-Plug 'connorholyday/vim-snazzy'
+" Plug 'connorholyday/vim-snazzy'
 
 " code edit
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
