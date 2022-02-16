@@ -450,19 +450,19 @@ Plug 'preservim/nerdcommenter'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'majutsushi/tagbar'
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 
 " frontend enhance
 " Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/html5.vim'
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 
 " tool things
 Plug 'mhinz/vim-startify'
 Plug 'PascalZh/vim-badapple'
 Plug 'azadkuh/vim-cmus'
+Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
 " Plug 'w0rp/ale'
 
@@ -635,14 +635,6 @@ autocmd filetype python let g:NERDSpaceDelims=0
 
 " rainbow的配置项
 let g:rainbow_active = 1
-" let g:rainbow_load_separately = [
-" \   [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-" \   [ 'nerdtree', [['(', ')']] ],
-" \   [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
-" \   [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-" \]
-" let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
-" let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 " 使rainbow在NERDTree中不起作用
 let g:rainbow_conf = {
 	\ 'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
@@ -676,41 +668,58 @@ au Filetype FILETYPE let b:AutoPairs = {"(": ")"}
 au FileType php      let b:AutoPairs = AutoPairsDefine({'<?' : '?>', '<?php': '?>'})
 
 
-" ===================
-" airline bar config
-" ===================
-let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_detect_spell=1
+" ===
+" ==== airline bar config
+" ===
 set laststatus=2  "永远显示状态栏
+let g:airline_powerline_fonts = 1
+let g:airline_detect_spell=1
+let g:airline_stl_path_style = 'short'
+let g:airline_section_c_only_filename = 1
 " airline的所有符号设置
 if !exists('g:airline_symbols')
 	let g:airline_symbols={}
 endif
+let g:airline_filetype_overrides = {
+      \ 'coc-explorer':  [ 'CoC Explorer', '' ],
+      \ 'defx':  ['defx', '%{b:defx.paths[0]}'],
+      \ 'fugitive': ['fugitive', '%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'],
+      \ 'floggraph':  [ 'Flog', '%{get(b:, "flog_status_summary", "")}' ],
+      \ 'gundo': [ 'Gundo', '' ],
+      \ 'help':  [ 'Help', '%f' ],
+      \ 'minibufexpl': [ 'MiniBufExplorer', '' ],
+      \ 'nerdtree': [ get(g:, 'NERDTreeStatusline', 'NERDTree'), '' ],
+      \ 'startify': [ 'startify', '' ],
+      \ 'vim-plug': [ 'Plugins', '' ],
+      \ 'vimfiler': [ 'vimfiler', '%{vimfiler#get_status_string()}' ],
+      \ 'vimshell': ['vimshell','%{vimshell#get_status_string()}'],
+      \ 'vaffle' : [ 'Vaffle', '%{b:vaffle.dir}' ],
+      \ }
 " unicode symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.colnr = ' :'
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ' :'
-let g:airline_symbols.maxlinenr = '☰'
-let g:airline_symbols.branch = ''
-let g:airline_symbols.dirty='⚡'
+let g:airline_left_sep          = ''
+let g:airline_left_alt_sep      = ''
+let g:airline_right_sep         = ''
+let g:airline_right_alt_sep     = ''
+let g:airline_symbols.branch    = ''
+let g:airline_symbols.colnr     = ' :'
+let g:airline_symbols.readonly  = ''
+let g:airline_symbols.linenr    = ' :'
+let g:airline_symbols.maxlinenr = '☰ '
+let g:airline_symbols.dirty     = '⚡'
 " 关闭空白符检测
-let g:airline#extensions#whitespace#enabled=0
 " =============================
 " ==== airline section配置 ====
 " =============================
-" let g:airline_section_c = airline#section#create(['%{getcwd()}'])
-" let g:airline_section_b = airline#section#create(['file'])
-" let g:airline_section_x = '%{expand("%")}'  " 显示文件名
-" let g:airline_section_y = airline#section#create(['%{strftime("%D")}'])
-let g:airline_section_z = airline#section#create(['%{strftime("%m/%d %H:%M ")}', 'linenr', 'maxlinenr'])
-" let g:airline#extensions#tabline#enabled = 1
+" let g:airline_section_a = 
+" let g:airline_section_b = '%{FugitiveStatusline()}'
+let g:airline_section_c = '' " 显示文件名
+let g:airline_section_x = '%t'
+" let g:airline_section_y = airline#section#create([''])
+let g:airline_section_z = airline#section#create([ '%{strftime("%m/%d %H:%M ")}', 'linenr', 'maxlinenr', 'colnr'])
 " ==============================
-" 激活一些airline-extensions
+" 对部分airline-extensions的设置(1: 开启, 0: 关闭)
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#whitespace#enabled=0
 let g:airline#extensions#branch#enabled = 1
 " airline-weather的配置
 let g:weather#appid = '988c4fdd6e7f9fca5032556b725a6198'
@@ -744,7 +753,7 @@ let g:weather#status_map = {
 " Tagbar配置
 nmap tt :TagbarToggle<CR>
 let g:tagbar_width = 26
-let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tagbar#enabled = 0
 let g:tagbar_type_markdown = {
 	\ 'ctagstype' : 'markdown',
 	\ 'kinds' : [
