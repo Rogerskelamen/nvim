@@ -12,6 +12,15 @@
 " author: @Rogerskelamen
 
 
+" ===
+" === Auto load for first time uses
+" ===
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " ==============
 " 设置polyglot
 " ==============
@@ -122,65 +131,6 @@ noremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
 noremap s <nop>
 
 
-" =====
-" ===== System
-" =====
-set clipboard=unnamedplus " 将系统的剪切板和vim共享
-let &t_ut=''
-set autochdir
-
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""
-" Quickly Run
-"""""""""""""""""""""""""""""""""""""""""""""""
-map r :call CompileRunGcc()<CR>
-func! CompileRunGcc()
-	exec "w"
-	if &filetype == 'c'
-		exec "!gcc % -o %<"
-		:sp
-		:res -5
-		:term ./%<
-	elseif &filetype == 'cpp'
-		exec "!g++ -std=c++11 % -Wall -o %<"
-		:sp
-		:res -5
-		:term ./%<
-	elseif &filetype == 'java'
-		set splitbelow
-		:sp
-		:res -5
-		term javac % && time java %<
-	elseif &filetype == 'sh'
-		:!time bash %
-	elseif &filetype == 'python'
-		set splitbelow
-		:sp
-		:term python3 %
-	elseif &filetype == 'html'
-		silent! exec "!open %"
-	elseif &filetype == 'markdown'
-		exec "InstantMarkdownPreview"
-	elseif &filetype == 'tex'
-		silent! exec "VimtexStop"
-		silent! exec "VimtexCompile"
-	elseif &filetype == 'dart'
-		exec "CocCommand flutter.run -d ".g:flutter_default_device." ".g:flutter_run_args
-		silent! exec "CocCommand flutter.dev.openDevLog"
-	elseif &filetype == 'javascript'
-		set splitbelow
-		:sp
-		" :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
-		:term node %
-	elseif &filetype == 'go'
-		set splitbelow
-		:sp
-		:term go run .
-	endif
-endfunc
-
-
 " ===
 " === Editor behavior
 " ===
@@ -223,10 +173,21 @@ filetype indent on
 filetype plugin on
 filetype plugin indent on
 " set mouse=a       " 设置是否可用鼠标
+set clipboard=unnamedplus " 将系统的剪切板和vim共享
 let &t_ut=''
 set autochdir
 set scrolloff=5  " 上下滚动间隔距离为5行
 noremap <leader>w :%s/\s\+$//<cr>:let @/=''<CR>
+" 缓存所有的文件历史记录
+silent !mkdir -p $HOME/.config/nvim/tmp/backup
+silent !mkdir -p $HOME/.config/nvim/tmp/undo
+"silent !mkdir -p $HOME/.config/nvim/tmp/sessions
+set backupdir=$HOME/.config/nvim/tmp/backup,.
+set directory=$HOME/.config/nvim/tmp/backup,.
+if has('persistent_undo')
+	set undofile
+	set undodir=$HOME/.config/nvim/tmp/undo,.
+endif
 
 
 "------------------------------
@@ -281,13 +242,63 @@ syntax on
 autocmd FileType html,css,javascript,vue,markdown setlocal shiftwidth=2 softtabstop=2 expandtab
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""
+" Quickly Run
+"""""""""""""""""""""""""""""""""""""""""""""""
+map r :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+	exec "w"
+	if &filetype == 'c'
+		exec "!gcc % -o %<"
+		:sp
+		:res -5
+		:term ./%<
+	elseif &filetype == 'cpp'
+		exec "!g++ -std=c++11 % -Wall -o %<"
+		:sp
+		:res -5
+		:term ./%<
+	elseif &filetype == 'java'
+		set splitbelow
+		:sp
+		:res -5
+		term javac % && time java %<
+	elseif &filetype == 'sh'
+		:!time bash %
+	elseif &filetype == 'python'
+		set splitbelow
+		:sp
+		:term python3 %
+	elseif &filetype == 'html'
+		silent! exec "!open %"
+	elseif &filetype == 'markdown'
+		exec "InstantMarkdownPreview"
+	elseif &filetype == 'tex'
+		silent! exec "VimtexStop"
+		silent! exec "VimtexCompile"
+	elseif &filetype == 'dart'
+		exec "CocCommand flutter.run -d ".g:flutter_default_device." ".g:flutter_run_args
+		silent! exec "CocCommand flutter.dev.openDevLog"
+	elseif &filetype == 'javascript'
+		set splitbelow
+		:sp
+		" :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+		:term node %
+	elseif &filetype == 'go'
+		set splitbelow
+		:sp
+		:term go run .
+	endif
+endfunc
+
+
 " ===
 " ===== 配色方案
 " ===
 
 " 设置背景透明度
 " hi Normal ctermfg=252 ctermbg=none
-autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+autocmd Vimenter * hi Normal guibg=NONE ctermbg=NONE
 
 " 亮暗方案
 " set background=dark " for the dark version
@@ -436,6 +447,8 @@ Plug 'haystackandroid/cosmic_latte'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 Plug 'preservim/nerdcommenter'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'majutsushi/tagbar'
 
@@ -444,12 +457,13 @@ Plug 'majutsushi/tagbar'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/html5.vim'
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 
 " tool things
 Plug 'mhinz/vim-startify'
 Plug 'PascalZh/vim-badapple'
 Plug 'azadkuh/vim-cmus'
-" Plug 'godlygeek/tabular'
+Plug 'mbbill/undotree'
 " Plug 'w0rp/ale'
 
 call plug#end()
@@ -551,20 +565,21 @@ let g:coc_snippet_prev = '<c-n>'
 " == GitGutter
 " ==
 " let g:gitgutter_signs = 0
-let g:gitgutter_sign_allow_clobber = 0
-let g:gitgutter_map_keys = 0
+let g:gitgutter_sign_allow_clobber             = 0
+let g:gitgutter_map_keys                       = 0
 let g:gitgutter_override_sign_column_highlight = 0
-let g:gitgutter_preview_win_floating = 1
-let g:gitgutter_sign_added = '▎'
-let g:gitgutter_sign_modified = '░'
-let g:gitgutter_sign_removed = '▏'
-let g:gitgutter_sign_removed_first_line = '▔'
-let g:gitgutter_sign_modified_removed = '▒'
+let g:gitgutter_preview_win_floating           = 1
+let g:gitgutter_sign_added                     = '▎'
+let g:gitgutter_sign_modified                  = '░'
+let g:gitgutter_sign_removed                   = '▏'
+let g:gitgutter_sign_removed_first_line        = '▔'
+let g:gitgutter_sign_modified_removed          = '▒'
 " autocmd BufWritePost * GitGutter
 nnoremap <LEADER>gf :GitGutterFold<CR>
 nnoremap <LEADER>H :GitGutterPreviewHunk<CR>
 nnoremap g- :GitGutterPrevHunk<CR>
 nnoremap g= :GitGutterNextHunk<CR>
+" set signcolumn=yes
 
 
 " javascript-libraries-syntax config
@@ -594,17 +609,17 @@ let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreeGitStatusShowIgnored = 1
 let g:NERDTreeGitStatusConcealBrackets = 0
 let g:NERDTreeGitStatusIndicatorMapCustom = {
-			\ 'Modified'  :'✹',
-			\ 'Staged'    :'✚',
-			\ 'Untracked' :'✭',
-			\ 'Renamed'   :'➜',
-			\ 'Unmerged'  :'═',
-			\ 'Deleted'   :'✖',
-			\ 'Dirty'     :'✗',
-			\ 'Ignored'   :'☒',
-			\ 'Clean'     :'✔︎',
-			\ 'Unknown'   :'?',
-			\ }
+	\ 'Modified'  :'✹',
+	\ 'Staged'    :'✚',
+	\ 'Untracked' :'✭',
+	\ 'Renamed'   :'➜',
+	\ 'Unmerged'  :'═',
+	\ 'Deleted'   :'✖',
+	\ 'Dirty'     :'✗',
+	\ 'Ignored'   :'☒',
+	\ 'Clean'     :'✔︎',
+	\ 'Unknown'   :'?',
+\ }
 
 " nerdtree和vim-devicons联动
 let g:webdevicons_conceal_nerdtree_brackets=1
@@ -739,6 +754,24 @@ let g:tagbar_type_markdown = {
 		\ ],
 		\ 'sort' : 0
 		\ }
+
+
+" ===
+" === Undotree
+" ===
+noremap <LEADER>u :UndotreeToggle<CR>
+let g:undotree_DiffAutoOpen = 1
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_ShortIndicators = 1
+let g:undotree_WindowLayout = 2
+let g:undotree_DiffpanelHeight = 8
+let g:undotree_SplitWidth = 24
+function g:Undotree_CustomMap()
+	nmap <buffer> u <plug>UndotreeNextState
+	nmap <buffer> e <plug>UndotreePreviousState
+	nmap <buffer> U 5<plug>UndotreeNextState
+	nmap <buffer> E 5<plug>UndotreePreviousState
+endfunc
 
 
 " ====================

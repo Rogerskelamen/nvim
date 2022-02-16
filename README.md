@@ -245,6 +245,10 @@ In addition, when you scroll you screen, the cursor will stay 5 lines above the 
 
 - `<LEADER>r`: open the ranger in neovim
 
+- `cs'"`: change `'` bracket into `"`
+
+- `<LEADER>u`: toggle the UndoTree
+
 - `[g`: go to the next error place
 
 - `]g`: go to the previous error place
