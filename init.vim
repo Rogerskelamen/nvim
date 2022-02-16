@@ -494,24 +494,24 @@ set updatetime=100
 set shortmess+=c
 
 let g:coc_global_extensions = [
-			\ 'coc-yank',
-			\ 'coc-vimlsp',
-			\ 'coc-syntax',
-			\ 'coc-snippets',
-			\ 'coc-marketplace',
-			\ 'coc-json',
-			\ 'coc-html',
-			\ 'coc-vetur',
-			\ 'coc-tsserver',
-			\ 'coc-jedi',
-			\ 'coc-java',
-			\ 'coc-go',
-			\ 'coc-css',
-			\ 'coc-clangd'
-			\ ]
+	\ 'coc-yank',
+	\ 'coc-vimlsp',
+	\ 'coc-syntax',
+	\ 'coc-snippets',
+	\ 'coc-marketplace',
+	\ 'coc-json',
+	\ 'coc-html',
+	\ 'coc-vetur',
+	\ 'coc-tsserver',
+	\ 'coc-jedi',
+	\ 'coc-java',
+	\ 'coc-go',
+	\ 'coc-css',
+	\ 'coc-clangd'
+	\ ]
 
 if has("nvim-0.5.0") || has("patch-8.1.1564")
-	" Recently vim can merge signcolumn and number column into one
+	" " Recently vim can merge signcolumn and number column into one
 	set signcolumn=number
 else
 	set signcolumn=yes
@@ -619,7 +619,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 	\ 'Ignored'   :'☒',
 	\ 'Clean'     :'✔︎',
 	\ 'Unknown'   :'?',
-\ }
+	\ }
 
 " nerdtree和vim-devicons联动
 let g:webdevicons_conceal_nerdtree_brackets=1
@@ -645,25 +645,25 @@ let g:rainbow_active = 1
 " let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 " 使rainbow在NERDTree中不起作用
 let g:rainbow_conf = {
-			\       'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-			\       'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-			\       'operators': '_,_',
-			\       'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-			\       'separately': {
-				\           '*': {},
-				\	    	'tex': {
-					\	    		'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-					\	    	},
-					\	    	'lisp': {
-						\	    		'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-						\	    	},
-						\	    	'vim': {
-							\	    		'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-							\	    	},
-							\	    	'css': 0,
-							\	    	'nerdtree': 0,
-							\	}
-							\}
+	\ 'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+	\ 'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+	\ 'operators': '_,_',
+	\ 'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+	\ 'separately': {
+		\ '*': {},
+		\ 'tex': {
+			\	'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+			\	},
+		\ 'lisp': {
+			\	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+			\   },
+		\ 'vim': {
+			\	'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+			\	},
+		\ 'css': 0,
+		\ 'nerdtree': 0,
+		\ }
+	\ }
 " let g:rainbow_conf = {
 " \	'separately': {
 " \		'nerdtree': 0,
@@ -720,25 +720,25 @@ let g:weather#area = 'wuhan,china'
 let g:weather#unit = 'metric'
 " let g:weather#format = '%s %.0f'
 let g:weather#status_map = {
-			\ "01d": "",
-			\ "02d": "",
-			\ "03d": "",
-			\ "04d": "☁",
-			\ "09d": "☂",
-			\ "10d": "",
-			\ "11d": "⚡",
-			\ "13d": "",
-			\ "50d": "",
-			\ "01n": "☽",
-			\ "02n": "",
-			\ "03n": "",
-			\ "04n": "☁",
-			\ "09n": "☂",
-			\ "10n": "",
-			\ "11n": "⚡",
-			\ "13n": "",
-			\ "50n": "",
-			\}
+	\ "01d": "",
+	\ "02d": "",
+	\ "03d": "",
+	\ "04d": "☁",
+	\ "09d": "☂",
+	\ "10d": "",
+	\ "11d": "⚡",
+	\ "13d": "",
+	\ "50d": "",
+	\ "01n": "☽",
+	\ "02n": "",
+	\ "03n": "",
+	\ "04n": "☁",
+	\ "09n": "☂",
+	\ "10n": "",
+	\ "11n": "⚡",
+	\ "13n": "",
+	\ "50n": "",
+	\}
 
 
 " Tagbar配置
