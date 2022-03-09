@@ -62,7 +62,7 @@ noremap <right> :vertical resize+5<CR>
 noremap <LEADER>s :split<CR>
 noremap <LEADER>v :vsplit<CR>
 noremap sv <C-w>t<C-w>H
-noremap sj <C-w>t<C-w>K
+noremap sh <C-w>t<C-w>K
 
 " Open the vimrc file anytime
 noremap <LEADER>rc :e $HOME/.config/nvim/init.vim<CR>
@@ -161,6 +161,13 @@ autocmd TermOpen term://* startinsert   " 打开终端之后直接进入写入
 " 快速回到普通模式(normal)
 tnoremap <C-N> <C-\><C-N>
 tnoremap <C-O> <C-\><C-N><C-O>
+" quick open a terminal
+noremap tr :call OpenTerminal()<CR>
+func! OpenTerminal()
+	:sp
+	:res -5
+	:term
+endfunc
 
 "----------------------------
 " 全局的部分设置
@@ -471,7 +478,7 @@ call plug#end()
 
 " startify的配置
 let g:startify_custom_header =
-	\ startify#pad(split(system('figlet -f slant NEOVIM 2022'), '\n'))
+	\ startify#pad(split(system('figlet -f 3d NEOVIM'), '\n'))
 " 配合NerdTree的配置
 let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 
@@ -583,6 +590,7 @@ nnoremap g= :GitGutterNextHunk<CR>
 
 
 " javascript-libraries-syntax config
+let g:used_javascript_libs = 'underscore,backbone'
 autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
@@ -710,12 +718,12 @@ let g:airline_symbols.dirty     = '⚡'
 " =============================
 " ==== airline section配置 ====
 " =============================
-" let g:airline_section_a = 
+" let g:airline_section_a = ''
 " let g:airline_section_b = '%{FugitiveStatusline()}'
-let g:airline_section_c = '' " 显示文件名
-let g:airline_section_x = '%t'
+" let g:airline_section_c = '' " 显示文件名
+" let g:airline_section_x = '%t'
 " let g:airline_section_y = airline#section#create([''])
-let g:airline_section_z = airline#section#create([ '%{strftime("%m/%d %H:%M ")}', 'linenr', 'maxlinenr', 'colnr'])
+let g:airline_section_z = airline#section#create([ '%{strftime("%H:%M ")}', 'linenr', 'maxlinenr', 'colnr'])
 " ==============================
 " 对部分airline-extensions的设置(1: 开启, 0: 关闭)
 let g:airline#extensions#tabline#enabled = 0

@@ -155,9 +155,9 @@ These four has been changed into move 5 lines or 5 columns
 
   Create a split window, <kbd>v</kbd> for vertical, <kbd>s</kbd> for no vertical
 
-- `sv`, `sj`
+- `sv`, `sh`
 
-  Change the format of current split window, sv for vertical one, sj for up and down one.
+  Change the format of current split window, sv for vertical one, sh for horizontal one.
 
 ### Tab Usage
 
