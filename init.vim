@@ -164,9 +164,16 @@ tnoremap <C-O> <C-\><C-N><C-O>
 " quick open a terminal
 noremap tr :call OpenTerminal()<CR>
 func! OpenTerminal()
-	:sp
-	:res -5
-	:term
+	if exists("g:term_exist")
+		:sp
+		:res -5
+		:buffer term
+	else
+		let g:term_exist = 1
+		:sp
+		:res -5
+		:term
+	endif
 endfunc
 
 "----------------------------
@@ -279,6 +286,7 @@ func! CompileRunGcc()
 	elseif &filetype == 'html'
 		silent! exec "!open %"
 	elseif &filetype == 'markdown'
+		exec "InstantMarkdownStop"
 		exec "InstantMarkdownPreview"
 	elseif &filetype == 'tex'
 		silent! exec "VimtexStop"
