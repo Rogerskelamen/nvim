@@ -286,8 +286,8 @@ func! CompileRunGcc()
 	elseif &filetype == 'html'
 		silent! exec "!open %"
 	elseif &filetype == 'markdown'
-		exec "InstantMarkdownStop"
-		exec "InstantMarkdownPreview"
+		silent! exec "InstantMarkdownStop"
+		silent! exec "InstantMarkdownPreview"
 	elseif &filetype == 'tex'
 		silent! exec "VimtexStop"
 		silent! exec "VimtexCompile"
@@ -312,7 +312,6 @@ endfunc
 " ===
 
 " 设置背景透明度
-" hi Normal ctermfg=252 ctermbg=none
 autocmd Vimenter * hi Normal guibg=NONE ctermbg=NONE
 
 " 亮暗方案
