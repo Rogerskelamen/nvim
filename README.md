@@ -157,7 +157,9 @@ These four has been changed into move 5 lines or 5 columns
 
 - `sv`, `sh`
 
-  Change the format of current split window, sv for vertical one, sh for horizontal one.
+  > split vertically, split horizontally
+
+  Change the format of current split window, `sv` for vertical one, `sh` for horizontal one.
 
 ### Tab Usage
 
@@ -171,7 +173,7 @@ These four has been changed into move 5 lines or 5 columns
 
 ### Some LEADER key functions
 
-- `<LEADER>rc`: open the $NVIM/init.vim with nvim.
+- `<LEADER>rc`: open the `$NVIM/init.vim` with nvim.
 
 - `<LEADER>sc`: open the Spell Check function
 
@@ -244,6 +246,8 @@ In addition, when you scroll you screen, the cursor will stay 5 lines above the 
 - `<LEADER>f`: open the fzf in neovim
 
 - `<LEADER>r`: open the ranger in neovim
+
+- `<LEADER>m`: open the cmus controller in neovim
 
 - `cs'"`: change `'` bracket into `"`
 

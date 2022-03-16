@@ -499,6 +499,11 @@ noremap <LEADER>f :Files<CR>
 " ranger
 noremap <LEADER>r :RnvimrToggle<CR>
 
+" ===
+" ==== cmus control
+" ===
+noremap <LEADER>m :Cmus<CR>
+
 
 " ========================
 " coc配置
