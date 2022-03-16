@@ -440,7 +440,7 @@ Plug 'joker1007/vim-markdown-quote-syntax'
 " git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'cohama/agit.vim'
+" Plug 'cohama/agit.vim'
 
 " colourful
 Plug 'luochen1990/rainbow'
@@ -619,7 +619,7 @@ autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
 " =========================
 " ===== 设置NerdTree ======
 " =========================
-noremap <C-i> :NERDTreeMirror<CR>
+noremap <LEADER>p :NERDTreeFind<CR>
 noremap <C-i> :NERDTreeToggle<CR>
 :let g:NERDTreeWinSize=25
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif " 如果是最后一个窗口就关闭nerdTree
