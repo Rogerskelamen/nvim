@@ -414,11 +414,9 @@ endif
 " ======================
 call plug#begin('~/.config/nvim/plugged')
 
-" airline - a beautiful statusline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Plug 'mattn/webapi-vim'
-" Plug 'Wildog/airline-weather.vim'
+" eleline - a elegant statusline
+Plug 'theniceboy/eleline.vim'
+" Plug 'ojroques/vim-scrollstatus'
 
 " File navigation
 Plug 'kevinhwang91/rnvimr'
@@ -701,85 +699,9 @@ au FileType php      let b:AutoPairs = AutoPairsDefine({'<?' : '?>', '<?php': '?
 
 
 " ===
-" ==== airline bar config
+" ==== eleline bar config
 " ===
-set laststatus=2  "永远显示状态栏
 let g:airline_powerline_fonts = 1
-let g:airline_detect_spell=1
-let g:airline_stl_path_style = 'short'
-let g:airline_section_c_only_filename = 1
-" airline的所有符号设置
-if !exists('g:airline_symbols')
-	let g:airline_symbols={}
-endif
-let g:airline_filetype_overrides = {
-      \ 'coc-explorer':  [ 'CoC Explorer', '' ],
-      \ 'defx':  ['defx', '%{b:defx.paths[0]}'],
-      \ 'fugitive': ['fugitive', '%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'],
-      \ 'floggraph':  [ 'Flog', '%{get(b:, "flog_status_summary", "")}' ],
-      \ 'gundo': [ 'Gundo', '' ],
-      \ 'help':  [ 'Help', '%f' ],
-      \ 'minibufexpl': [ 'MiniBufExplorer', '' ],
-      \ 'nerdtree': [ get(g:, 'NERDTreeStatusline', 'NERDTree'), '' ],
-      \ 'startify': [ 'startify', '' ],
-      \ 'vim-plug': [ 'Plugins', '' ],
-      \ 'vimfiler': [ 'vimfiler', '%{vimfiler#get_status_string()}' ],
-      \ 'vimshell': ['vimshell','%{vimshell#get_status_string()}'],
-      \ 'vaffle' : [ 'Vaffle', '%{b:vaffle.dir}' ],
-      \ }
-" unicode symbols
-let g:airline_left_sep          = ''
-let g:airline_left_alt_sep      = ''
-let g:airline_right_sep         = ''
-let g:airline_right_alt_sep     = ''
-let g:airline_symbols.branch    = ''
-let g:airline_symbols.colnr     = ' :'
-let g:airline_symbols.readonly  = ''
-let g:airline_symbols.linenr    = ' :'
-let g:airline_symbols.maxlinenr = '☰ '
-let g:airline_symbols.dirty     = '⚡'
-" 关闭空白符检测
-" =============================
-" ==== airline section配置 ====
-" =============================
-" let g:airline_section_a = ''
-" let g:airline_section_b = '%{FugitiveStatusline()}'
-" let g:airline_section_c = '' " 显示文件名
-" let g:airline_section_x = '%t'
-" let g:airline_section_y = airline#section#create([''])
-let g:airline_section_z = airline#section#create([ '%{strftime("%H:%M ")}', 'linenr', 'maxlinenr', 'colnr'])
-" ==============================
-" 对部分airline-extensions的设置(1: 开启, 0: 关闭)
-let g:airline#extensions#tabline#enabled = 0
-let g:airline#extensions#whitespace#enabled=0
-let g:airline#extensions#branch#enabled = 1
-" airline-weather的配置
-let g:weather#appid = '988c4fdd6e7f9fca5032556b725a6198'
-let g:weather#cache_file = '~/.cache/.weather'
-let g:weather#cache_ttl = '3600'
-let g:weather#area = 'wuhan,china'
-let g:weather#unit = 'metric'
-" let g:weather#format = '%s %.0f'
-let g:weather#status_map = {
-	\ "01d": "",
-	\ "02d": "",
-	\ "03d": "",
-	\ "04d": "☁",
-	\ "09d": "☂",
-	\ "10d": "",
-	\ "11d": "⚡",
-	\ "13d": "",
-	\ "50d": "",
-	\ "01n": "☽",
-	\ "02n": "",
-	\ "03n": "",
-	\ "04n": "☁",
-	\ "09n": "☂",
-	\ "10n": "",
-	\ "11n": "⚡",
-	\ "13n": "",
-	\ "50n": "",
-	\}
 
 
 " Tagbar配置
