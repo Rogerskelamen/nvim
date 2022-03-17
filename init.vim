@@ -415,7 +415,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 " eleline - a elegant statusline
-Plug 'theniceboy/eleline.vim'
+Plug 'Rogerskelamen/eleline.vim'
 " Plug 'ojroques/vim-scrollstatus'
 
 " File navigation
