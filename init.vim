@@ -472,7 +472,6 @@ Plug 'othree/html5.vim'
 
 " tool things
 Plug 'mhinz/vim-startify'
-Plug 'PascalZh/vim-badapple'
 Plug 'azadkuh/vim-cmus'
 Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
