@@ -523,7 +523,10 @@ let g:coc_global_extensions = [
 	\ 'coc-java',
 	\ 'coc-go',
 	\ 'coc-css',
-	\ 'coc-clangd'
+	\ 'coc-clangd',
+	\ 'coc-markmap',
+	\ 'coc-tabnine',
+	\ 'coc-calc'
 	\ ]
 
 if has("nvim-0.5.0") || has("patch-8.1.1564")
@@ -575,6 +578,19 @@ imap <C-l> <Plug>(coc-snippets-expand)
 vmap <C-e> <Plug>(coc-snippets-select)
 let g:coc_snippet_next = '<c-m>'
 let g:coc_snippet_prev = '<c-n>'
+
+" NOTE: do NOT use `nore` mappings
+" popup
+nmap <Leader>e <Plug>(coc-translator-p)
+vmap <Leader>e <Plug>(coc-translator-pv)
+
+" Create markmap from the whole file
+nmap <Leader>z :CocCommand markmap.watch<CR>
+
+" append result on current expression
+nmap <Leader>ca <Plug>(coc-calc-result-append)
+" replace result on current expression
+nmap <Leader>cr <Plug>(coc-calc-result-replace)
 
 
 " ==

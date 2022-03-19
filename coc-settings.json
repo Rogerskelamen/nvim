@@ -9,7 +9,10 @@
         //"cpp"
     ],
     "snippets.ultisnips.directories": [
+        // vim-snippets扩展的代码片段
         "$HOME/.config/nvim/plugged/vim-snippets/UltiSnips/",
+        // 开启javascript的代码片段
+        "$HOME/.config/nvim/plugged/vim-snippets/snippets/javascript/",
         // 用户自定义代码片段
         "$HOME/.config/nvim/Ultisnips/"
     ],
@@ -54,6 +57,12 @@
     "vetur.ignoreProjectWarning": true,
     // coc更新的频率
     "coc.preferences.extensionUpdateCheck": "daily",
+    // coc-translator
+    "translator.engines": [
+        "bing",
+        "youdao",
+        "haici"
+    ],
     // 对python-jedi进行配置
     "jedi.enable": true,
     "jedi.startupMessage": false,
