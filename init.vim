@@ -584,13 +584,8 @@ let g:coc_snippet_prev = '<c-n>'
 nmap <Leader>e <Plug>(coc-translator-p)
 vmap <Leader>e <Plug>(coc-translator-pv)
 
-" Create markmap from the whole file
-nmap <Leader>z :CocCommand markmap.watch<CR>
-
 " append result on current expression
-nmap <Leader>ca <Plug>(coc-calc-result-append)
-" replace result on current expression
-nmap <Leader>cr <Plug>(coc-calc-result-replace)
+nmap <Leader>x <Plug>(coc-calc-result-append)
 
 
 " ==
@@ -769,6 +764,10 @@ autocmd Filetype markdown noremap ,i a**<Esc>i
 autocmd Filetype markdown noremap ,u a<u></u><Esc>3hi
 autocmd Filetype markdown noremap ,$ a$$<CR>$$<Esc>O
 autocmd Filetype markdown noremap ,k a<kbd></kbd><Esc>5hi
+
+" Create markmap from the whole file
+autocmd Filetype markdown noremap <Leader>z :CocCommand markmap.watch<CR>
+
 
 " vim-markdown的配置
 set conceallevel=2
