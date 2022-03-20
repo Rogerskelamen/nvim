@@ -12,8 +12,6 @@
     "snippets.ultisnips.directories": [
         // vim-snippets扩展的代码片段
         "$HOME/.config/nvim/plugged/vim-snippets/UltiSnips/",
-        // 开启javascript的代码片段
-        "$HOME/.config/nvim/plugged/vim-snippets/snippets/javascript/",
         // 用户自定义代码片段
         "$HOME/.config/nvim/Ultisnips/"
     ],
