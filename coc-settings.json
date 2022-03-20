@@ -4,6 +4,7 @@
     "codeLens.enable": true,
     "coc.preferences.formatOnSaveFiletypes": [
         "json",
+        "html",
         "python"
         // "c",
         //"cpp"
@@ -63,6 +64,10 @@
         "youdao",
         "haici"
     ],
+    // 更改Tabnine的设置
+    "tabnine.shortcut": "tabnine",
+    // 提高emmet的优先级
+    "emmet.priority": 1000,
     // 对python-jedi进行配置
     "jedi.enable": true,
     "jedi.startupMessage": false,

@@ -351,11 +351,57 @@ colorscheme material
 
 " =========================
 " set for airline theme
-let g:airline_theme='material'
+" let g:airline_theme='material'
 " let g:airline_theme='onedark'
 " let g:airline_theme='nova'
 " let g:airline_theme='atomic'
 " let g:airline_theme='bubblegum'
+
+" set for lightline
+let g:lightline = {
+	\ 'colorscheme': 'material_vim',
+	\ 'active': {
+	\	'left': [ [ 'filename', 'paste', 'spell' ],
+	\			[ 'gitbranch', 'readonly', 'modified' ] ],
+	\	'right': [ ['lineinfo'], ['percent'],
+	\			[ 'fileformat', 'fileencoding', 'filetype'] ]
+	\	},
+	\ 'component': {
+	\	'lineinfo': '%3l:%-2v%<',
+	\ },
+	\ 'component_function': {
+	  \ 'gitbranch': 'FugitiveHead',
+	  \ 'readonly': 'LightlineReadonly',
+	  \ 'filename': 'LightlineFilename',
+	  \ 'fileformat': 'LightlineFileformat',
+      \ 'filetype': 'LightlineFiletype'
+	  \ }
+	  \ }
+
+function! LightlineReadonly()
+	return &readonly && &filetype !=# 'help' ? 'RO' : ''
+endfunction
+
+function! LightlineFilename()
+	return expand('%:t') =~# '^__Tagbar__' ? 'Tagbar':
+		\ &filetype ==# 'nerdtree' ? 'NERDTree' :
+		\ &filetype ==# 'startify' ? 'Startify' :
+		\ expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+endfunction
+
+" function! LightlineLineinfo()
+	" if (&filetype == 'nerdtree' || &filetype == 'startify' || &filetype == 'tagbar')
+		" return ''
+	" endif
+" endfunction
+
+function! LightlineFileformat()
+	return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightlineFiletype()
+	return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
 
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -416,6 +462,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 " eleline - a elegant statusline
 Plug 'Rogerskelamen/eleline.vim'
+" Plug 'itchyny/lightline.vim'
 " Plug 'ojroques/vim-scrollstatus'
 
 " File navigation
@@ -517,6 +564,7 @@ let g:coc_global_extensions = [
 	\ 'coc-marketplace',
 	\ 'coc-json',
 	\ 'coc-html',
+	\ 'coc-emmet',
 	\ 'coc-vetur',
 	\ 'coc-tsserver',
 	\ 'coc-jedi',
