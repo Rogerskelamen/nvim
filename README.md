@@ -71,6 +71,8 @@ You can change it into other plugin manager as you wish
 
 - `coc-html`
 
+- `coc-emmet`
+
 - `coc-vetur`
 
 - `coc-tsserver`
@@ -85,10 +87,16 @@ You can change it into other plugin manager as you wish
 
 - `coc-clangd`
 
+- `coc-markmap`
+
+- `coc-tabnine`
+
+- `coc-calc`
+
 You easily change one of them by set the following setting:
 
 ```vim
-let g:coc_global_extensions = ['coc-go']
+let g:coc_global_extensions = ['coc-explorer']
 ```
 
 ## Theme
@@ -160,6 +168,14 @@ These four has been changed into move 5 lines or 5 columns
   > split vertically, split horizontally
 
   Change the format of current split window, `sv` for vertical one, `sh` for horizontal one.
+
+### Quick select and change
+
+> Since I integrated the wildfire and vim-surround, it becomes easy to select a code block and change it into other code blocks(or surrounded by some brackets).
+
+- <kbd>Enter</kbd>+`S"`: select the code block and make it surrounded by `"`
+
+- `cs'"`: change `'` bracket into `"`
 
 ### Tab Usage
 
@@ -249,7 +265,11 @@ In addition, when you scroll you screen, the cursor will stay 5 lines above the 
 
 - `<LEADER>m`: open the cmus controller in neovim
 
-- `cs'"`: change `'` bracket into `"`
+- `<LEADER>g`: open the lazygit interface
+
+- `<LEADER>e`: open the chinese translator
+
+- `<LEADER>x`: calculate out the result of current expression
 
 - `<LEADER>u`: toggle the UndoTree
 
@@ -290,3 +310,5 @@ In addition, when you scroll you screen, the cursor will stay 5 lines above the 
 - `,$`: latex math text
 
 - `<LEADER>t`: toggle markdown table mode
+
+- `<LEADER>z`: open the markmap in browser

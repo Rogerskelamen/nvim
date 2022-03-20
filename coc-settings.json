@@ -17,10 +17,43 @@
         // 用户自定义代码片段
         "$HOME/.config/nvim/Ultisnips/"
     ],
+    // 使tsserver可以的communication可以被检测到
+    "tsserver.trace.server": "verbose",
     // 对clangd的配置
     // "clangd.fallbackFlags": [
         // "pkg-config --cflags gtk+-3.0"
     // ],
+    // 对vetur进行配置
+    "vetur.ignoreProjectWarning": true,
+    // coc更新的频率
+    "coc.preferences.extensionUpdateCheck": "daily",
+    // coc-translator
+    "translator.engines": [
+        "bing",
+        "youdao",
+        "haici"
+    ],
+    // 更改Tabnine的设置
+    "tabnine.shortcut": "tabnine",
+    // 提高emmet的优先级
+    "emmet.priority": 1000,
+    // 对python-jedi进行配置
+    "jedi.enable": true,
+    "jedi.startupMessage": false,
+    "jedi.markupKindPreferred": "plaintext",
+    "jedi.executable.command": "jedi-language-server",
+    "jedi.hover.enable": true,
+    "jedi.diagnostics.enable": true,
+    "jedi.diagnostics.didOpen": true,
+    "jedi.diagnostics.didChange": true,
+    "jedi.diagnostics.didSave": true,
+    "jedi.workspace.symbols.ignoreFolders": [
+        ".nox",
+        ".tox",
+        ".venv",
+        "__pycache__",
+        "venv"
+    ],
     // 补全提示设置的icon
     "suggest.completionItemKindLabels": {
         "class": "\uf0e8",
@@ -53,36 +86,5 @@
     "diagnostic.errorSign": "\uf467",
     "diagnostic.warningSign": "\uf071",
     "diagnostic.infoSign": "\uf129",
-    "diagnostic.hintSign": "\uf864",
-    // 对vetur进行配置
-    "vetur.ignoreProjectWarning": true,
-    // coc更新的频率
-    "coc.preferences.extensionUpdateCheck": "daily",
-    // coc-translator
-    "translator.engines": [
-        "bing",
-        "youdao",
-        "haici"
-    ],
-    // 更改Tabnine的设置
-    "tabnine.shortcut": "tabnine",
-    // 提高emmet的优先级
-    "emmet.priority": 1000,
-    // 对python-jedi进行配置
-    "jedi.enable": true,
-    "jedi.startupMessage": false,
-    "jedi.markupKindPreferred": "plaintext",
-    "jedi.executable.command": "jedi-language-server",
-    "jedi.hover.enable": true,
-    "jedi.diagnostics.enable": true,
-    "jedi.diagnostics.didOpen": true,
-    "jedi.diagnostics.didChange": true,
-    "jedi.diagnostics.didSave": true,
-    "jedi.workspace.symbols.ignoreFolders": [
-        ".nox",
-        ".tox",
-        ".venv",
-        "__pycache__",
-        "venv"
-    ]
+    "diagnostic.hintSign": "\uf864"
 }

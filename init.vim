@@ -9,7 +9,7 @@
 "                                                       +
 " =======================================================
 
-" author: @Rogerskelamen
+" Author: @Rogerskelamen
 
 
 " ===
@@ -180,7 +180,7 @@ endfunc
 " 全局的部分设置
 "----------------------------
 set encoding=utf-8
-set fencs=utf8,gbk,gb2312,gb1803
+set fileencodings=utf8,gbk,gb2312,gb1803
 set nocompatible
 filetype on
 filetype indent on
@@ -507,12 +507,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 Plug 'preservim/nerdcommenter'
 Plug 'godlygeek/tabular'
+Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 
 " frontend enhance
-" Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/html5.vim'
@@ -584,12 +584,17 @@ else
 	set signcolumn=yes
 endif
 
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
 			\ pumvisible() ? "\<C-n>" :
 			\ <SID>check_back_space() ? "\<TAB>" :
 			\ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]  =~# '\s'
@@ -600,16 +605,18 @@ endfunction
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" 跳到上下一个错误的位置
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" 找到函数定义等
+" GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Use Ctrl+h to show documentation in preview window.
 nnoremap <silent> <C-h> :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -622,17 +629,29 @@ function! s:show_documentation()
 	endif
 endfunction
 
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * call <SID>highlight_symbol()
+
+function! s:highlight_symbol()
+	if (&filetype !=# "python")
+		execute "silent call CocActionAsync('highlight')"
+	endif
+endfunction
+
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
 imap <C-l> <Plug>(coc-snippets-expand)
 vmap <C-e> <Plug>(coc-snippets-select)
 let g:coc_snippet_next = '<c-m>'
 let g:coc_snippet_prev = '<c-n>'
 
 " NOTE: do NOT use `nore` mappings
-" popup
+" popup a chinese translation
 nmap <Leader>e <Plug>(coc-translator-p)
 vmap <Leader>e <Plug>(coc-translator-pv)
 
-" append result on current expression
+" append calculations result on current expression
 nmap <Leader>x <Plug>(coc-calc-result-append)
 
 
