@@ -177,6 +177,7 @@ func! OpenTerminal()
 		:sp
 		:res -5
 		:buffer term
+		:normal i
 	else
 		let g:term_exist = 1
 		:sp
