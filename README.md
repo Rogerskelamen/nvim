@@ -273,7 +273,7 @@ In addition, when you scroll you screen, the cursor will stay 5 lines above the 
 
 - `<LEADER>u`: toggle the UndoTree
 
-- `tr`: open a terminal below your edit space
+- `<LEADER>/`: open a terminal below your edit space
 
 - `[g`: go to the next error place
 

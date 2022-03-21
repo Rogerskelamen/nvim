@@ -47,6 +47,8 @@ noremap H 5h
 noremap J 5j
 noremap K 5k
 noremap L 5l
+noremap W 5w
+noremap B 5b
 noremap <expr>m col(".")==col("$")-1?"^":"$"
 vnoremap <expr>m col(".")==col("$")-1?"^":"$h"
 
@@ -61,8 +63,13 @@ noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
 noremap <LEADER>s :split<CR>
 noremap <LEADER>v :vsplit<CR>
-noremap sv <C-w>t<C-w>H
+" Place the two screens up and down
 noremap sh <C-w>t<C-w>K
+" Place the two screens side by side
+noremap sv <C-w>t<C-w>H
+" Rotate screens
+noremap srh <C-w>b<C-w>K
+noremap srv <C-w>b<C-w>H
 
 " Open the vimrc file anytime
 noremap <LEADER>rc :e $HOME/.config/nvim/init.vim<CR>
@@ -84,6 +91,24 @@ noremap <silent> \v v$h
 " Indentation
 nnoremap < <<
 nnoremap > >>
+
+" clipboard history
+nnoremap <silent> <LEADER>y  :<C-u>CocList -A --normal yank<cr>
+
+" Folding
+noremap <silent> <LEADER>o za
+
+" find and replace
+noremap \s :%s//g<left><left>
+
+" close the neovim with everything saved
+noremap <C-c> ZZ
+
+" Press space twice to jump to the next '<++>' and edit it
+noremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
+
+" Disable the default s key
+noremap s <nop>
 
 " add ()""[] around the selected content, press C-l
 vnoremap <expr><C-l> CopyX()."c"
@@ -113,22 +138,6 @@ function AddParenthese(n)
 		return "\'".getreg('x')."\'"
 	endif
 endfunction
-
-
-" clipboard history
-nnoremap <silent> <LEADER>y  :<C-u>CocList -A --normal yank<cr>
-
-" Folding
-noremap <silent> <LEADER>o za
-
-" find and replace
-noremap \s :%s//g<left><left>
-
-" Press space twice to jump to the next '<++>' and edit it
-noremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
-
-" Disable the default s key
-noremap s <nop>
 
 
 " ===
@@ -162,7 +171,7 @@ autocmd TermOpen term://* startinsert   " 打开终端之后直接进入写入
 tnoremap <C-N> <C-\><C-N>
 tnoremap <C-O> <C-\><C-N><C-O>
 " quick open a terminal
-noremap tr :call OpenTerminal()<CR>
+noremap <LEADER>/ :call OpenTerminal()<CR>
 func! OpenTerminal()
 	if exists("g:term_exist")
 		:sp
