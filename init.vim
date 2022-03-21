@@ -633,7 +633,9 @@ endfunction
 autocmd CursorHold * call <SID>highlight_symbol()
 
 function! s:highlight_symbol()
-	if (&filetype !=# "python")
+	if (&filetype ==# "python" || &filetype ==# "startify" || &filetype ==# "nerdtree" || &filetype ==# "tagbar" || &filetype ==# "markdown")
+		return
+	else
 		execute "silent call CocActionAsync('highlight')"
 	endif
 endfunction
@@ -673,7 +675,6 @@ nnoremap <LEADER>gf :GitGutterFold<CR>
 nnoremap <LEADER>H :GitGutterPreviewHunk<CR>
 nnoremap g- :GitGutterPrevHunk<CR>
 nnoremap g= :GitGutterNextHunk<CR>
-" set signcolumn=yes
 
 
 " ===
@@ -848,7 +849,7 @@ let g:markdown_quote_syntax_on_filetypes = ['text']
 
 
 " vim-table-mode配置
-autocmd Filetype markdown map <LEADER>t :TableModeToggle<CR>
+autocmd Filetype markdown map st :TableModeToggle<CR>
 " use || or __ enable table mode
 function! s:isAtStartOfLine(mapping)
 	let text_before_cursor = getline('.')[0 : col('.')-1]

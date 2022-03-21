@@ -309,6 +309,6 @@ In addition, when you scroll you screen, the cursor will stay 5 lines above the 
 
 - `,$`: latex math text
 
-- `<LEADER>t`: toggle markdown table mode
+- `st`: toggle markdown table mode
 
 - `<LEADER>z`: open the markmap in browser
