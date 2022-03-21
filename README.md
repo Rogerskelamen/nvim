@@ -201,7 +201,7 @@ These four has been changed into move 5 lines or 5 columns
 
 > the default <kbd>s</kbd> key has been disabled. You can either transform it into some other key function
 
-- `<LEADER> + <CR>`: make the highlight disabled
+- `<LEADER> + /`: make the highlight disabled
 
 - `\v`: visual mode make to line end
 
@@ -273,7 +273,7 @@ In addition, when you scroll you screen, the cursor will stay 5 lines above the 
 
 - `<LEADER>u`: toggle the UndoTree
 
-- `<LEADER>/`: open a terminal below your edit space
+- `<LEADER><Enter>`: open a terminal below your edit space
 
 - `[g`: go to the next error place
 

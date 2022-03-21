@@ -32,7 +32,7 @@ let g:polyglot_disabled = ['markdown']    " 禁用polyglot在markdown中的使�
 "------------------------------
 let mapleader=" "
 " noremap ; :
-noremap <LEADER><CR> :nohlsearch<CR>
+noremap <LEADER>/ :nohlsearch<CR>
 
 "----------------------------
 " 普通键位映射
@@ -169,9 +169,9 @@ let g:neoterm_autoscroll = 1
 autocmd TermOpen term://* startinsert   " 打开终端之后直接进入写入
 " 快速回到普通模式(normal)
 tnoremap <C-N> <C-\><C-N>
-tnoremap <C-O> <C-\><C-N><C-O>
+tnoremap <C-O> <C-\><C-N>:q<CR>
 " quick open a terminal
-noremap <LEADER>/ :call OpenTerminal()<CR>
+noremap <LEADER><CR> :call OpenTerminal()<CR>
 func! OpenTerminal()
 	if exists("g:term_exist")
 		:sp
