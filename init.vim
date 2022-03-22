@@ -530,7 +530,7 @@ Plug 'othree/html5.vim'
 " tool things
 Plug 'mhinz/vim-startify'
 Plug 'azadkuh/vim-cmus'
-Plug 'majutsushi/tagbar'
+Plug 'preservim/tagbar'
 Plug 'mbbill/undotree'
 " Plug 'w0rp/ale'
 

@@ -299,6 +299,20 @@ In addition, when you scroll you screen, the cursor will stay 5 lines above the 
 
 ## Markdown Usage
 
+> For a better experience of markdown writing, you should add a file named `.ctags` in your `$HOME` directory. It contains following content:
+
+```
+--langdef=markdown
+--langmap=markdown:.md
+--regex-markdown=/^(#+)[ \t]+([^#]*)/\1 \2/h,header,Markdown Headers/
+--regex-markdown=/\[([^\[]+)\]\(([^\)]+)\)/\1/l,link,Markdown Links/
+--regex-markdown=/!\[\]\(.*[\/ ](.*\.[a-z]{3})\)/\1/i,image,Markdown Image/
+```
+
+Then you could press <kbd>tt</kbd> to call your ctags to show markdown outline.
+
+*Make sure that you have installed `ctags`*
+
 - `,b`: bold text
 
 - `,i`: italic text
