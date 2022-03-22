@@ -17,6 +17,7 @@
     ],
     // 使tsserver可以的communication可以被检测到
     "tsserver.trace.server": "verbose",
+    "css.trace.server": "verbose",
     // 对clangd的配置
     // "clangd.fallbackFlags": [
         // "pkg-config --cflags gtk+-3.0"
@@ -33,8 +34,21 @@
     ],
     // 更改Tabnine的设置
     "tabnine.shortcut": "tabnine",
-    // 提高emmet的优先级
+    "tabnine.disable_filetypes": [
+        "html",
+        "css",
+        "less"
+    ],
+    // 设置emmet
     "emmet.priority": 1000,
+    "emmet.includeLanguages": {
+        "vue-html": "html"
+    },
+    "emmet.excludeLanguages": [
+        "markdown",
+        "css",
+        "less"
+    ],
     // 对python-jedi进行配置
     "jedi.enable": true,
     "jedi.startupMessage": false,
