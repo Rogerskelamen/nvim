@@ -840,12 +840,12 @@ let g:instant_markdown_mathjax = 1  " use latex lang
 autocmd Filetype markdown noremap ,b a****<Esc>hi
 autocmd Filetype markdown noremap ,i a**<Esc>i
 autocmd Filetype markdown noremap ,u a<u></u><Esc>3hi
+autocmd Filetype markdown noremap ,c a``````<Esc>2hi<CR><Esc>kA
 autocmd Filetype markdown noremap ,$ a$$<CR>$$<Esc>O
 autocmd Filetype markdown noremap ,k a<kbd></kbd><Esc>5hi
 
 " Create markmap from the whole file
 autocmd Filetype markdown noremap <Leader>z :CocCommand markmap.watch<CR>
-
 
 " vim-markdown的配置
 set conceallevel=2
@@ -853,10 +853,8 @@ let g:tex_conceal = ""
 let g:vim_markdown_math = 1
 
 " markdown-quote-syntax-highlight配置
-" Add syntax rule
 " Add other file types in which quote syntax should be on.
 let g:markdown_quote_syntax_on_filetypes = ['text']
-
 
 " vim-table-mode配置
 autocmd Filetype markdown map st :TableModeToggle<CR>
