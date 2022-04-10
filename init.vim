@@ -11,7 +11,7 @@
 
 " Author: @Rogerskelamen
 
-autocmd FileType vim nnoremap ,c i" ============================ <++> =======================<ESC>
+autocmd FileType vim nnoremap ,c i" ======================== <++> =========================<ESC>
 
 " ============================ polyglot =======================
 let g:polyglot_disabled = ['markdown']    " 禁用polyglot在markdown中的使用
@@ -114,7 +114,6 @@ noremap s <nop>
 " ============================ Editor behavior =======================
 set exrc
 set secure
-set noexpandtab
 set list
 set listchars=tab:\|\ ,trail:▫  " 设置空格和层次结构,如果此时需要输入真正的tab，则输入Ctrl+V, tab，在windows下是Ctrl+Q, tab
 set ttimeoutlen=0 " set map key delay
@@ -164,9 +163,9 @@ filetype indent on " use current filetype to indent
 " set mouse=a       " 设置是否可用鼠标
 set clipboard=unnamedplus " 将系统的剪切板和vim共享
 let &t_ut=''
-set autochdir
+set autochdir " always change directories
 set scrolloff=5  " 上下滚动间隔距离为5行
-noremap <leader>w :%s/\s\+$//<cr>:let @/=''<CR>
+" noremap <leader>w :%s/\s\+$//<cr>:let @/=''<CR>
 " 缓存所有的文件历史记录
 silent !mkdir -p $HOME/.config/nvim/tmp/backup
 silent !mkdir -p $HOME/.config/nvim/tmp/undo
@@ -182,57 +181,49 @@ endif
 "------------------------------
 " Vim UI
 "------------------------------
+syntax on
 set number
-"set relativenumber
 set cursorline
 set wrap
 set wildmenu
 set showcmd
-set noshowmode
-
-"--------------------------------------
-" 设置不同的文件开启时执行命令
-"--------------------------------------
-" au BufEnter *.html :syntax on<CR>
+set noshowmode " no hint when change modes
 
 
 "-------------------------------------
 " text searching/matching
 "-------------------------------------
 set hlsearch
-set incsearch
+set incsearch " match when typing pattern
 set ignorecase
 set smartcase
-" noremap _ nzz
-" noremap + Nzz
+
 
 "-------------------------------------
-" text formatting/layout
+" text indent/fold
 "-------------------------------------
-"set paste  " 设置是否自动注释
+set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab
 set autoindent
-set tw=0
 set indentexpr=
-set backspace=indent,eol,start
+set tw=0
+set backspace=indent,eol,start " make the backspace delete everything
 set foldmethod=indent
 set foldlevel=99
 set foldenable
 set formatoptions-=tc
-set splitright
+set splitright " behavior when split vertical
 set splitbelow
-syntax on
 
 " set different filetype indent behavior
 autocmd FileType html,css,javascript,vue,markdown setlocal shiftwidth=2 softtabstop=2 expandtab
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""
-" Quickly Run
-"""""""""""""""""""""""""""""""""""""""""""""""
+" ===
+" === Quickly Run
+" ===
 map r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
@@ -332,52 +323,6 @@ colorscheme material
 " let g:airline_theme='atomic'
 " let g:airline_theme='bubblegum'
 
-" set for lightline
-let g:lightline = {
-	\ 'colorscheme': 'material_vim',
-	\ 'active': {
-	\	'left': [ [ 'filename', 'paste', 'spell' ],
-	\			[ 'gitbranch', 'readonly', 'modified' ] ],
-	\	'right': [ ['lineinfo'], ['percent'],
-	\			[ 'fileformat', 'fileencoding', 'filetype'] ]
-	\	},
-	\ 'component': {
-	\	'lineinfo': '%3l:%-2v%<',
-	\ },
-	\ 'component_function': {
-	  \ 'gitbranch': 'FugitiveHead',
-	  \ 'readonly': 'LightlineReadonly',
-	  \ 'filename': 'LightlineFilename',
-	  \ 'fileformat': 'LightlineFileformat',
-      \ 'filetype': 'LightlineFiletype'
-	  \ }
-	  \ }
-
-function! LightlineReadonly()
-	return &readonly && &filetype !=# 'help' ? 'RO' : ''
-endfunction
-
-function! LightlineFilename()
-	return expand('%:t') =~# '^__Tagbar__' ? 'Tagbar':
-		\ &filetype ==# 'nerdtree' ? 'NERDTree' :
-		\ &filetype ==# 'startify' ? 'Startify' :
-		\ expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-endfunction
-
-" function! LightlineLineinfo()
-	" if (&filetype == 'nerdtree' || &filetype == 'startify' || &filetype == 'tagbar')
-		" return ''
-	" endif
-" endfunction
-
-function! LightlineFileformat()
-	return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! LightlineFiletype()
-	return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-endfunction
-
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -397,10 +342,9 @@ endif
 
 
 
-" ==============================
-" ========  光标设置 ===========
-" ==============================
-" "Mode Settings
+" =================================
+" ========  cursor setting ========
+" =================================
 
 "let &t_SI.="\e[5 q" "SI = INSERT mode
 "let &t_SR.="\e[4 q" "SR = REPLACE mode
@@ -429,10 +373,9 @@ endif
 
 
 
-
-" ======================
-" === All My Plugin ====
-" ======================
+" ===============================
+" ======= All My Plugins ========
+" ===============================
 call plug#begin('~/.config/nvim/plugged')
 
 " eleline - a elegant statusline
@@ -502,9 +445,7 @@ Plug 'mbbill/undotree'
 call plug#end()
 
 
-" ===
-" === startify的配置
-" ===
+" ======================== startify setting =========================
 let g:startify_custom_header =
 	\ startify#pad(split(system('figlet -f 3d NEOVIM'), '\n'))
 " 配合NerdTree的配置
@@ -512,7 +453,7 @@ let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 
 
 " ======================= file Navigation ====================
-" fzf设置
+" fzf setting
 " let g: fzf_preview_window = [ ' right:50% ' , ' ctrl-/ ' ]
 nnoremap <LEADER>f :Files<CR>
 " list Buffers
@@ -526,7 +467,7 @@ nnoremap <LEADER>r :RnvimrToggle<CR>
 nnoremap <LEADER>m :Cmus<CR>
 
 
-" ======================== coc config ==========================
+" ======================== COC config ==========================
 set hidden
 set shortmess+=c
 
@@ -631,9 +572,7 @@ vmap <Leader>e <Plug>(coc-translator-pv)
 nmap <Leader>x <Plug>(coc-calc-result-append)
 
 
-" ==
-" == GitGutter
-" ==
+" ======================== GitGutter =========================
 " let g:gitgutter_signs = 0
 let g:gitgutter_sign_allow_clobber             = 0
 let g:gitgutter_map_keys                       = 0
@@ -663,7 +602,7 @@ let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not inst
 nnoremap <silent> <leader>g :LazyGit<CR>
 
 
-" javascript-libraries-syntax config
+" ======================== javascript-libraries-syntax config =========================
 let g:used_javascript_libs = 'underscore,backbone'
 autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
@@ -672,17 +611,10 @@ autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
 autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
 
 
-" config about emmet
-" let g:user_emmet_leader_key='<C-m>'
-" notice that you still need ,
-" let g:user_emmet_install_global = 0
-" autocmd FileType html,css,vue EmmetInstall
-
-" =========================
-" ===== 设置NerdTree ======
-" =========================
-noremap <LEADER>p :NERDTreeFind<CR>
-noremap <C-i> :NERDTreeToggle<CR>
+" ========================== NerdTree Config =======================
+nnoremap <LEADER>p :NERDTreeFind<CR>
+nnoremap <C-i> :NERDTreeToggle<CR>
+noremap <C-f> <C-i>
 :let g:NERDTreeWinSize=25
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif " 如果是最后一个窗口就关闭nerdTree
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif  " 如果是最后一个标签就关闭nerdTree
@@ -710,12 +642,12 @@ let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
 let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
 
 
-" nerdcommenter配置项
+" ======================== NerdCommenter =========================
 let g:NERDSpaceDelims=1
 autocmd filetype python let g:NERDSpaceDelims=0
 
 
-" rainbow的配置项
+" ========================= rainbow config =========================
 let g:rainbow_active = 1
 " 使rainbow在NERDTree中不起作用
 let g:rainbow_conf = {
@@ -745,19 +677,17 @@ let g:rainbow_conf = {
 " \}
 
 
-"auto-pairs的配置项
+" ======================== auto-pairs =========================
 au Filetype FILETYPE let b:AutoPairs = {"(": ")"}
 au FileType php      let b:AutoPairs = AutoPairsDefine({'<?' : '?>', '<?php': '?>'})
 
 
-" ===
-" ==== eleline bar config
-" ===
+" ======================== eleline bar config =========================
 let g:airline_powerline_fonts = 1
 
 
-" Tagbar配置
-nmap tt :TagbarToggle<CR>
+" ======================== Tagbar =========================
+nnoremap tt :TagbarToggle<CR>
 let g:tagbar_width = 26
 let g:airline#extensions#tagbar#enabled = 0
 let g:tagbar_type_markdown = {
@@ -771,9 +701,7 @@ let g:tagbar_type_markdown = {
 		\ }
 
 
-" ===
-" === Undotree
-" ===
+" ======================== Undotree =========================
 noremap <LEADER>u :UndotreeToggle<CR>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
@@ -790,13 +718,13 @@ endfunc
 
 
 " ====================
-"   javascript配置
+" =  javascript配置  =
 " ====================
 let g:javascript_plugin_jsdoc = 1
 
 
 " +++++++++++++++++++++++
-"   markdown的配置项
+" +  markdown的配置项   +
 " +++++++++++++++++++++++
 let g:instant_markdown_autostart = 0  " not to autostart
 let g:instant_markdown_mathjax = 1  " use latex lang
@@ -809,19 +737,20 @@ autocmd Filetype markdown noremap ,$ a$$<CR>$$<Esc>O
 autocmd Filetype markdown noremap ,k a<kbd></kbd><Esc>5hi
 
 " Create markmap from the whole file
-autocmd Filetype markdown noremap <Leader>z :CocCommand markmap.watch<CR>
+autocmd Filetype markdown nnoremap <Leader>z :CocCommand markmap.watch<CR>
 
-" vim-markdown的配置
+
+" ======================== vim-markdown =========================
 set conceallevel=2
 let g:tex_conceal = ""
 let g:vim_markdown_math = 1
 
-" markdown-quote-syntax-highlight配置
+" ======================== markdown-quote-syntax-highlight =========================
 " Add other file types in which quote syntax should be on.
 let g:markdown_quote_syntax_on_filetypes = ['text']
 
-" vim-table-mode配置
-autocmd Filetype markdown map st :TableModeToggle<CR>
+" ======================== vim-table-mode ========================="
+autocmd Filetype markdown nnoremap st :TableModeToggle<CR>
 " use || or __ enable table mode
 function! s:isAtStartOfLine(mapping)
 	let text_before_cursor = getline('.')[0 : col('.')-1]
@@ -838,7 +767,8 @@ inoreabbrev <expr> __
 			\ '<c-o>:silent! TableModeDisable<cr>' : '__'
 
 
-" ===
-" === Necessary Commands to Execute
-" ===
+
+" =====================================
+" === Necessary Commands to Execute ===
+" =====================================
 exec "nohlsearch"

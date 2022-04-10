@@ -299,6 +299,8 @@ In addition, when you scroll you screen, the cursor will stay 5 lines above the 
 
 - `g=`: go to next git change
 
+*The <kbd>Ctrl</kbd>+<kbd>i</kbd> has been mapped as nerdtree, so I map the <kbd>Ctrl</kbd>+<kbd>f</kbd> to return the next changed area*
+
 ## Markdown Usage
 
 > For a better experience of markdown writing, you should add a file named `.ctags` in your `$HOME` directory. It contains following content:
