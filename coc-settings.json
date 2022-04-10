@@ -40,7 +40,7 @@
         "less"
     ],
     // 设置emmet
-    "emmet.priority": 1000,
+    "emmet.priority": 9999,
     "emmet.includeLanguages": {
         "vue-html": "html"
     },

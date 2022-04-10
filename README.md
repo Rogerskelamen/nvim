@@ -93,7 +93,7 @@ You can change it into other plugin manager as you wish
 
 - `coc-calc`
 
-You easily change one of them by set the following setting:
+You can easily change one of them by adding the following settings:
 
 ```vim
 let g:coc_global_extensions = ['coc-explorer']
@@ -260,6 +260,8 @@ In addition, when you scroll you screen, the cursor will stay 5 lines above the 
 - `<LEADER>c<LEADER>`: comment or discomment one line or a block
 
 - `<LEADER>f`: open the fzf in neovim
+
+- `<LEADER>b`: open the buffers view window
 
 - `<LEADER>r`: open the ranger in neovim
 

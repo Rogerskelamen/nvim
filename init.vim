@@ -11,6 +11,11 @@
 
 " Author: @Rogerskelamen
 
+autocmd FileType vim nnoremap ,c i" ============================ <++> =======================<ESC>
+
+" ============================ polyglot =======================
+let g:polyglot_disabled = ['markdown']    " 禁用polyglot在markdown中的使用
+
 
 " ===
 " === Auto load for first time uses
@@ -20,11 +25,6 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
-" ==============
-" 设置polyglot
-" ==============
-let g:polyglot_disabled = ['markdown']    " 禁用polyglot在markdown中的使用
 
 
 "------------------------------
@@ -40,7 +40,7 @@ noremap <LEADER>/ :nohlsearch<CR>
 " Save and quit
 noremap S :w<CR>
 noremap Q :q<CR>
-noremap <C-p> :qa<CR>
+noremap <C-q> :qa<CR>
 
 " quick move
 noremap H 5h
@@ -49,8 +49,8 @@ noremap K 5k
 noremap L 5l
 noremap W 5w
 noremap B 5b
-noremap <expr>m col(".")==col("$")-1?"^":"$"
-vnoremap <expr>m col(".")==col("$")-1?"^":"$h"
+noremap <expr>m col(".")==col("$")-1 ? "^" : "$"
+vnoremap <expr>m col(".")==col("$")-1 ? "^" : "$h"
 
 " windows set
 noremap <LEADER>l <C-w>l
@@ -110,64 +110,31 @@ noremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
 " Disable the default s key
 noremap s <nop>
 
-" add ()""[] around the selected content, press C-l
-vnoremap <expr><C-l> CopyX()."c"
-	\ .AddParenthese(getchar())."<Esc>"
-function CopyX()
-	if( col("v") > col(".") )
-		let l1 = col(".")
-		let l2 = col("v")
-	else
-		let l1 = col("v")
-		let l2 = col(".")
-	endif
-	call setreg('x', getline('.')[l1-1:l2-1])
-	return ''
-endfunction
 
-function AddParenthese(n)
-	if a:n==123
-		return "{".getreg('x')."}"
-	elseif a:n==40
-		return "(".getreg('x').")"
-	elseif a:n==91
-		return "[".getreg('x')."]"
-	elseif a:n==34
-		return "\"".getreg('x')."\""
-	elseif a:n==39
-		return "\'".getreg('x')."\'"
-	endif
-endfunction
-
-
-" ===
-" === Editor behavior
-" ===
+" ============================ Editor behavior =======================
 set exrc
 set secure
 set noexpandtab
 set list
 set listchars=tab:\|\ ,trail:▫  " 设置空格和层次结构,如果此时需要输入真正的tab，则输入Ctrl+V, tab，在windows下是Ctrl+Q, tab
-set ttimeoutlen=0
+set ttimeoutlen=0 " set map key delay
 set notimeout
 set viewoptions=cursor,folds,slash,unix
 set inccommand=split
-set completeopt=longest,noinsert,menuone,noselect,preview
-set ttyfast "should make scrolling faster
-set lazyredraw "same as above
-set visualbell
-" set colorcolumn=100
+set completeopt=menuone,longest,preview,noinsert,noselect " complete options
+set updatetime=100 " complete show delay
+set lazyredraw
+set visualbell " off the beeping
 set virtualedit=block
-" make the cursor go back to the last place since the file closed
+" make the cursor go back to the last place when the file closed
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 
 " ===
 " === Terminal Behaviors
 " ===
-let g:neoterm_autoscroll = 1
 autocmd TermOpen term://* startinsert   " 打开终端之后直接进入写入
-" 快速回到普通模式(normal)
+" quick return to normal mode
 tnoremap <C-N> <C-\><C-N>
 tnoremap <C-O> <C-\><C-N>:q<CR>
 " quick open a terminal
@@ -190,12 +157,10 @@ endfunc
 " 全局的部分设置
 "----------------------------
 set encoding=utf-8
-set fileencodings=utf8,gbk,gb2312,gb1803
-set nocompatible
-filetype on
-filetype indent on
-filetype plugin on
-filetype plugin indent on
+set nocompatible " turn off the side-effects of vi"
+filetype on " turn on the filetype detect
+filetype plugin on " turn on corresponding file plugin
+filetype indent on " use current filetype to indent
 " set mouse=a       " 设置是否可用鼠标
 set clipboard=unnamedplus " 将系统的剪切板和vim共享
 let &t_ut=''
@@ -537,33 +502,32 @@ Plug 'mbbill/undotree'
 call plug#end()
 
 
-" startify的配置
+" ===
+" === startify的配置
+" ===
 let g:startify_custom_header =
 	\ startify#pad(split(system('figlet -f 3d NEOVIM'), '\n'))
 " 配合NerdTree的配置
 let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 
 
-" ===
-" ==== file Navigation
-" ===
+" ======================= file Navigation ====================
 " fzf设置
 " let g: fzf_preview_window = [ ' right:50% ' , ' ctrl-/ ' ]
-noremap <LEADER>f :Files<CR>
+nnoremap <LEADER>f :Files<CR>
+" list Buffers
+nnoremap <LEADER>b :Buffers<CR>
 " ranger
-noremap <LEADER>r :RnvimrToggle<CR>
+nnoremap <LEADER>r :RnvimrToggle<CR>
 
 " ===
-" ==== cmus control
+" === cmus control
 " ===
-noremap <LEADER>m :Cmus<CR>
+nnoremap <LEADER>m :Cmus<CR>
 
 
-" ========================
-" coc配置
-" ========================
+" ======================== coc config ==========================
 set hidden
-set updatetime=100
 set shortmess+=c
 
 let g:coc_global_extensions = [
