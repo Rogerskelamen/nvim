@@ -45,6 +45,12 @@
 
 - `node`
 
+- `clang`
+
+- `ctags`
+
+- `figlet`
+
 ### Plugin Management
 
 > My neovim use [vim-plug](https://github.com/junegunn/vim-plug) as default plugin manager
@@ -224,6 +230,12 @@ Also, when you open a file, I make the neovim to put your cursor on the position
 ---
 
 In addition, when you scroll you screen, the cursor will stay 5 lines above the bottom of the screen and 5 lines below the top of the screen.
+
+### Startify
+
+I use `figlet` to draw the 3D-ascii, so you have to get `figlet` installed in your machine if you want the ascii picture.
+
+As well, you have to add [`3d.flf`](https://github.com/xero/figlet-fonts/blob/master/3d.flf) to `figlet` which makes sure the command works well.
 
 ## Run Function
 
