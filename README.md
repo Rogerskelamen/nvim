@@ -109,7 +109,7 @@ let g:coc_global_extensions = ['coc-explorer']
 
 > My neovim use the [material theme](https://github.com/kaicataldo/material.vim) as default
 
-There has some other options to choose:
+There are some other options to choose:
 
 - [onedark](https://github.com/joshdick/onedark.vim)
 
@@ -127,7 +127,7 @@ There has some other options to choose:
 
   A eye-protected theme (*it changes along with the time, if you don't like the light background, don't turn it on*)
 
-**You may find all the color scheme have their transparent background, but it actually configured by Neovim. You can release the certain line to turn on/off the effect:**
+**You may find all the color scheme have their transparent background, but it is actually configured by Neovim. You can release the certain line to turn on/off the effect:**
 
 ```vim
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE

@@ -390,7 +390,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf' }
 " Nerdtree
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'lambdalisue/glyph-palette.vim'
 
 " markdown
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
@@ -407,7 +408,6 @@ Plug 'kdheepak/lazygit.nvim'
 " colourful
 Plug 'luochen1990/rainbow'
 Plug 'ryanoasis/vim-devicons'
-Plug 'lambdalisue/glyph-palette.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'  " 设置语法高亮和自动缩进
 
@@ -640,11 +640,11 @@ let g:webdevicons_conceal_nerdtree_brackets=1
 
 
 " ======================== glyph-paletee =========================
-augroup my-glyph-palette
-  autocmd! *
-  autocmd FileType fern call glyph_palette#apply()
-  autocmd FileType nerdtree,startify call glyph_palette#apply()
-augroup END
+" augroup my-glyph-palette
+  " autocmd! *
+  " autocmd FileType fern call glyph_palette#apply()
+  " autocmd FileType nerdtree,startify call glyph_palette#apply()
+" augroup END
 
 
 " ======================== NerdCommenter =========================
