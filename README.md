@@ -49,8 +49,6 @@
 
 - `ctags`
 
-- `figlet`
-
 ### Plugin Management
 
 > My neovim use [vim-plug](https://github.com/junegunn/vim-plug) as default plugin manager
@@ -233,9 +231,11 @@ In addition, when you scroll you screen, the cursor will stay 5 lines above the 
 
 ### Startify
 
-I use `figlet` to draw the 3D-ascii, so you have to get `figlet` installed in your machine if you want the ascii picture.
+Now I use a static neovim logo
 
-As well, you have to add [`3d.flf`](https://github.com/xero/figlet-fonts/blob/master/3d.flf) to `figlet` which makes sure the command works well.
+<del>I use `figlet` to draw the 3D-ascii, so you have to get `figlet` installed in your machine if you want the ascii picture.</del>
+
+<del>As well, you have to add [`3d.flf`](https://github.com/xero/figlet-fonts/blob/master/3d.flf) to `figlet` which makes sure the command works well.</del>
 
 ## Run Function
 
@@ -338,6 +338,8 @@ Then you could press <kbd>tt</kbd> to call your ctags to show markdown outline.
 - `,k`: keyboard text
 
 - `,$`: latex math text
+
+- `,c`: code block
 
 - `st`: toggle markdown table mode
 

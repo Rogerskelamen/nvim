@@ -105,7 +105,7 @@ noremap \s :%s//g<left><left>
 noremap <C-c> ZZ
 
 " Press space twice to jump to the next '<++>' and edit it
-noremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
+" noremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
 
 " Disable the default s key
 noremap s <nop>
@@ -384,6 +384,7 @@ Plug 'Rogerskelamen/eleline.vim'
 
 " File navigation
 Plug 'kevinhwang91/rnvimr'
+Plug 'liuchengxu/vim-clap'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf' }
 
@@ -446,8 +447,17 @@ call plug#end()
 
 
 " ======================== startify setting =========================
-let g:startify_custom_header =
-	\ startify#pad(split(system('figlet -f 3d NEOVIM'), '\n'))
+" let g:startify_custom_header =
+	" \ startify#pad(split(system('figlet -f 3d NEOVIM'), '\n'))
+let g:startify_custom_header = [
+\ '    ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+\ '    ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+\ '    ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+\ '    ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+\ '    ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+\ '    ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+\]
+
 " 配合NerdTree的配置
 let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 
@@ -465,6 +475,7 @@ nnoremap <LEADER>r :RnvimrToggle<CR>
 " === cmus control
 " ===
 nnoremap <LEADER>m :Cmus<CR>
+
 
 
 " ======================== COC config ==========================
