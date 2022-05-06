@@ -387,7 +387,6 @@ Plug 'Rogerskelamen/eleline.vim'
 
 " File navigation
 Plug 'kevinhwang91/rnvimr'
-Plug 'liuchengxu/vim-clap'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf' }
 
@@ -476,7 +475,7 @@ nnoremap <LEADER>m :Cmus<CR>
 
 
 
-" ======================== COC config ==========================
+" ======================== COC.NVIM config ==========================
 set hidden
 set shortmess+=c
 
