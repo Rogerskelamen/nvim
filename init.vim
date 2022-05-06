@@ -157,7 +157,9 @@ endfunc
 " 全局的部分设置
 "----------------------------
 set encoding=utf-8
-set nocompatible " turn off the side-effects of vi"
+set fileencodings=utf-8,gbk " 写入文件时采用的编码类型
+set termencoding=utf-8 " 输出到终端时采用的编码类型
+set nocompatible " turn off the side-effects of vi
 filetype on " turn on the filetype detect
 filetype plugin on " turn on corresponding file plugin
 filetype indent on " use current filetype to indent
@@ -209,14 +211,14 @@ set shiftwidth=4
 set softtabstop=4
 set autoindent
 set indentexpr=
-set tw=0
+set tw=0 " avoid automatically cut lines
 set backspace=indent,eol,start " make the backspace delete everything
 set foldmethod=indent
 set foldlevel=99
 set foldenable
 set formatoptions-=tc
-set splitright " behavior when split vertical
-set splitbelow
+set splitright " behavior when split vertically
+set splitbelow " behavior when split horizontally
 
 " set different filetype indent behavior
 autocmd FileType html,css,javascript,vue,markdown setlocal shiftwidth=2 softtabstop=2 expandtab
@@ -399,6 +401,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'joker1007/vim-markdown-quote-syntax'
+Plug 'dkarter/bullets.vim'
 " Plug 'plasticboy/vim-markdown'
 
 " git
@@ -433,15 +436,17 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 
 " frontend enhance
+Plug 'hail2u/vim-css3-syntax', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }  " CSS3语法支持
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/html5.vim'
 
 " tool things
 Plug 'mhinz/vim-startify'
-Plug 'azadkuh/vim-cmus'
 Plug 'preservim/tagbar'
 Plug 'mbbill/undotree'
+Plug 'azadkuh/vim-cmus'
+Plug 'yianwillis/vimcdoc' " vim Chinese Document
 " Plug 'w0rp/ale'
 
 call plug#end()
@@ -605,6 +610,17 @@ let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not inst
 " setup mapping to call :LazyGit
 nnoremap <silent> <leader>g :LazyGit<CR>
 
+
+" ======================== bullets.vim =========================
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'text',
+    \ 'gitcommit',
+    \ 'scratch'
+    \]
+let g:bullets_enable_in_empty_buffers = 0
+let g:bullets_line_spacing = 2 " one blank line between bullets
+let g:bullets_pad_right = 0
 
 " ======================== javascript-libraries-syntax config =========================
 let g:used_javascript_libs = 'underscore,backbone'

@@ -34,7 +34,7 @@
 
   ```shell
   git clone https://github.com/Rogerskelamen/nvim.git
-  mv -r ./nvim $HOME/.config/
+  mv ./nvim $HOME/.config/
   ```
 
 3. get into your neovim and add plugin: `:PlugInstall`(*optional but recommended*)
