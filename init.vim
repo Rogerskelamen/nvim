@@ -11,7 +11,8 @@
 
 " Author: @Rogerskelamen
 
-autocmd FileType vim nnoremap ,c i" ======================== <++> =========================<ESC>
+" import external file
+source $HOME/.config/nvim/logo.vim
 
 " ============================ polyglot =======================
 let g:polyglot_disabled = ['markdown']    " 禁用polyglot在markdown中的使用
@@ -449,15 +450,7 @@ call plug#end()
 " ======================== startify setting =========================
 " let g:startify_custom_header =
 	" \ startify#pad(split(system('figlet -f 3d NEOVIM'), '\n'))
-let g:startify_custom_header = [
-\ '    ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
-\ '    ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
-\ '    ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
-\ '    ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
-\ '    ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
-\ '    ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
-\]
-
+let g:startify_custom_header = neovim_logo
 " 配合NerdTree的配置
 let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 
