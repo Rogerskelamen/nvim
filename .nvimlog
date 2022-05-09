@@ -1,0 +1,11 @@
+ERROR 2022-05-09T22:16:08.476 9484  terminfo_start:328: uv_tty_set_mode failed: invalid argument
+ERROR 2022-05-09T22:24:17.538 21320 terminfo_start:328: uv_tty_set_mode failed: invalid argument
+ERROR 2022-05-09T22:24:26.989 5528  terminfo_start:328: uv_tty_set_mode failed: invalid argument
+ERROR 2022-05-09T22:26:11.631 14156 terminfo_start:328: uv_tty_set_mode failed: invalid argument
+ERROR 2022-05-09T22:28:55.780 14716 terminfo_start:328: uv_tty_set_mode failed: invalid argument
+ERROR 2022-05-09T22:30:16.423 18572 terminfo_start:328: uv_tty_set_mode failed: invalid argument
+ERROR 2022-05-09T22:49:55.689 17936 terminfo_start:328: uv_tty_set_mode failed: invalid argument
+ERROR 2022-05-09T22:55:13.764 8188  terminfo_start:328: uv_tty_set_mode failed: invalid argument
+ERROR 2022-05-09T22:55:17.570 18180 terminfo_start:328: uv_tty_set_mode failed: invalid argument
+ERROR 2022-05-09T22:55:20.037 13580 terminfo_start:328: uv_tty_set_mode failed: invalid argument
+ERROR 2022-05-09T22:58:04.022 9540  terminfo_start:328: uv_tty_set_mode failed: invalid argument

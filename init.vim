@@ -12,7 +12,7 @@
 " Author: @Rogerskelamen
 
 " import external file
-source $HOME/.config/nvim/logo.vim
+source $HOME/AppData/Local/nvim/logo.vim
 
 " ============================ polyglot =======================
 let g:polyglot_disabled = ['markdown']    " 禁用polyglot在markdown中的使用
@@ -21,7 +21,7 @@ let g:polyglot_disabled = ['markdown']    " 禁用polyglot在markdown中的使�
 " ===
 " === Auto load for first time uses
 " ===
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
+if empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
 	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -73,7 +73,7 @@ noremap srh <C-w>b<C-w>K
 noremap srv <C-w>b<C-w>H
 
 " Open the vimrc file anytime
-noremap <LEADER>rc :e $HOME/.config/nvim/init.vim<CR>
+noremap <LEADER>rc :e $HOME/AppData/Local/nvim/init.vim<CR>
 noremap <LEADER>sc :set spell!<CR>
 
 " tab set
@@ -386,7 +386,6 @@ Plug 'Rogerskelamen/eleline.vim'
 " Plug 'ojroques/vim-scrollstatus'
 
 " File navigation
-Plug 'kevinhwang91/rnvimr'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf' }
 
@@ -444,7 +443,6 @@ Plug 'othree/html5.vim'
 Plug 'mhinz/vim-startify'
 Plug 'preservim/tagbar'
 Plug 'mbbill/undotree'
-Plug 'azadkuh/vim-cmus'
 Plug 'yianwillis/vimcdoc' " vim Chinese Document
 " Plug 'w0rp/ale'
 
@@ -465,14 +463,6 @@ let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 nnoremap <LEADER>f :Files<CR>
 " list Buffers
 nnoremap <LEADER>b :Buffers<CR>
-" ranger
-nnoremap <LEADER>r :RnvimrToggle<CR>
-
-" ===
-" === cmus control
-" ===
-nnoremap <LEADER>m :Cmus<CR>
-
 
 
 " ======================== COC.NVIM config ==========================
@@ -632,7 +622,7 @@ autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
 
 " ========================== NerdTree Config =======================
 nnoremap <LEADER>p :NERDTreeFind<CR>
-nnoremap <C-i> :NERDTreeToggle<CR>
+nnoremap <Tab> :NERDTreeToggle<CR>
 noremap <C-f> <C-i>
 :let g:NERDTreeWinSize=25
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif " 如果是最后一个窗口就关闭nerdTree
