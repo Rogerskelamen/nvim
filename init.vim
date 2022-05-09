@@ -93,6 +93,35 @@ noremap <silent> \v v$h
 nnoremap < <<
 nnoremap > >>
 
+" add ()""[] around the selected content, press C-l
+vnoremap <expr><C-l> CopyX()."c"
+	\ .AddParenthese(getchar())."<Esc>"
+function CopyX()
+	if( col("v") > col(".") )
+		let l1 = col(".")
+		let l2 = col("v")
+	else
+		let l1 = col("v")
+		let l2 = col(".")
+	endif
+	call setreg('x', getline('.')[l1-1:l2-1])
+	return ''
+endfunction
+
+function AddParenthese(n)
+	if a:n==123
+		return "{".getreg('x')."}"
+	elseif a:n==40
+		return "(".getreg('x').")"
+	elseif a:n==91
+		return "[".getreg('x')."]"
+	elseif a:n==34
+		return "\"".getreg('x')."\""
+	elseif a:n==39
+		return "\'".getreg('x')."\'"
+	endif
+endfunction
+
 " clipboard history
 nnoremap <silent> <LEADER>y  :<C-u>CocList -A --normal yank<cr>
 
@@ -234,12 +263,12 @@ func! CompileRunGcc()
 		exec "!gcc % -o %<"
 		:sp
 		:res -5
-		:term ./%<
+		:term %<
 	elseif &filetype == 'cpp'
 		exec "!g++ -std=c++11 % -Wall -o %<"
 		:sp
 		:res -5
-		:term ./%<
+		:term %<
 	elseif &filetype == 'java'
 		set splitbelow
 		:sp
@@ -250,9 +279,9 @@ func! CompileRunGcc()
 	elseif &filetype == 'python'
 		set splitbelow
 		:sp
-		:term python3 %
+		:term python %
 	elseif &filetype == 'html'
-		silent! exec "!open %"
+        silent! exec "!explorer %"
 	elseif &filetype == 'markdown'
 		silent! exec "InstantMarkdownStop"
 		silent! exec "InstantMarkdownPreview"
@@ -740,6 +769,7 @@ let g:javascript_plugin_jsdoc = 1
 " +++++++++++++++++++++++
 " +  markdown的配置项   +
 " +++++++++++++++++++++++
+let g:instant_markdown_slow = 1  " for windows platform
 let g:instant_markdown_autostart = 0  " not to autostart
 let g:instant_markdown_mathjax = 1  " use latex lang
 

@@ -2,3 +2,4 @@ plugged
 .nvimlog
 tmp
 .*.swp
+*.un~
