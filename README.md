@@ -12,9 +12,9 @@
 
   Use Chocolatey:
 
-    ```powershell
-    choco install neovim
-    ```
+  ```powershell
+  choco install neovim
+  ```
 
 2. clone the repo into your `$HOME/AppData/Local/` and change the branch:
 
