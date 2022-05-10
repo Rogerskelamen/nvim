@@ -1,10 +1,12 @@
 # the Usage of My Neovim
 
-> if you want to copy My neovim configuration, this readme tutorial may help you a lot.
+> If you want to copy My neovim configuration, this readme tutorial may help you a lot.
 
 > Also, this configuration help me to remember the forgotten function. After all, the configuration is so much.
 
 ![](https://raw.githubusercontent.com/Rogerskelamen/nvim/master/images/screenshot.png)
+
+If you use neovim-win64, you may want to apply [this branch](https://github.com/Rogerskelamen/nvim/tree/win)
 
 ## Installation
 
