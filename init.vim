@@ -612,11 +612,11 @@ nnoremap <silent> <leader>g :LazyGit<CR>
 
 " ======================== bullets.vim =========================
 let g:bullets_enabled_file_types = [
-    \ 'markdown',
-    \ 'text',
-    \ 'gitcommit',
-    \ 'scratch'
-    \]
+	\ 'markdown',
+	\ 'text',
+	\ 'gitcommit',
+	\ 'scratch'
+	\]
 let g:bullets_enable_in_empty_buffers = 0
 let g:bullets_line_spacing = 2 " one blank line between bullets
 let g:bullets_pad_right = 0
