@@ -21,8 +21,8 @@ let g:polyglot_disabled = ['markdown']    " 禁用polyglot在markdown中的使�
 " ===
 " === Auto load for first time uses
 " ===
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob($HOME.'/.config/nvim/autoload/plug.vim'))
+	silent !curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
@@ -400,7 +400,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'joker1007/vim-markdown-quote-syntax'
-Plug 'dkarter/bullets.vim'
 " Plug 'plasticboy/vim-markdown'
 
 " git
@@ -609,17 +608,6 @@ let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not inst
 " setup mapping to call :LazyGit
 nnoremap <silent> <leader>g :LazyGit<CR>
 
-
-" ======================== bullets.vim =========================
-let g:bullets_enabled_file_types = [
-	\ 'markdown',
-	\ 'text',
-	\ 'gitcommit',
-	\ 'scratch'
-	\]
-let g:bullets_enable_in_empty_buffers = 0
-let g:bullets_line_spacing = 2 " one blank line between bullets
-let g:bullets_pad_right = 0
 
 " ======================== javascript-libraries-syntax config =========================
 let g:used_javascript_libs = 'underscore,backbone'
