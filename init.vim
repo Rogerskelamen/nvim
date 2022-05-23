@@ -14,6 +14,10 @@
 " import external file
 source $HOME/.config/nvim/logo.vim
 
+" correct checkhealth
+let g:ruby_host_prog = '/opt/homebrew/lib/ruby/gems/3.1.0/bin/neovim-ruby-host'
+let g:loaded_perl_provider = 0
+
 " ============================ polyglot =======================
 let g:polyglot_disabled = ['markdown']    " 禁用polyglot在markdown中的使用
 
