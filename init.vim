@@ -624,7 +624,7 @@ autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
 
 " ========================== NerdTree Config =======================
 nnoremap <LEADER>p :NERDTreeFind<CR>
-nnoremap <C-i> :NERDTreeToggle<CR>
+nnoremap <Tab> :NERDTreeToggle<CR>
 noremap <C-f> <C-i>
 :let g:NERDTreeWinSize=25
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif " 如果是最后一个窗口就关闭nerdTree
