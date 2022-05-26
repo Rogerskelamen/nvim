@@ -567,8 +567,11 @@ endfunction
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
+" use snippets
 imap <C-l> <Plug>(coc-snippets-expand)
-vmap <C-e> <Plug>(coc-snippets-select)
+" press Enter jump to next snippets selection
+let g:coc_snippet_next = '<cr>'
+
 
 " NOTE: do NOT use `nore` mappings
 " popup a chinese translation
