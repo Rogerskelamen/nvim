@@ -126,7 +126,7 @@ set notimeout
 set viewoptions=cursor,folds,slash,unix
 set inccommand=split
 set completeopt=menuone,longest,preview,noinsert,noselect " complete options
-set updatetime=100 " complete show delay
+set updatetime=300 " complete show delay
 set lazyredraw
 set visualbell " off the beeping
 set virtualedit=block
@@ -514,16 +514,14 @@ endif
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-			\ pumvisible() ? "\<C-n>" :
-			\ <SID>check_back_space() ? "\<TAB>" :
-			\ coc#refresh()
+	  \ pumvisible() ? "\<C-n>" :
+	  \ CheckBackspace() ? "\<TAB>" :
+	  \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
@@ -571,8 +569,6 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 
 imap <C-l> <Plug>(coc-snippets-expand)
 vmap <C-e> <Plug>(coc-snippets-select)
-let g:coc_snippet_next = '<c-m>'
-let g:coc_snippet_prev = '<c-n>'
 
 " NOTE: do NOT use `nore` mappings
 " popup a chinese translation
