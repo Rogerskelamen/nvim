@@ -567,7 +567,8 @@ endfunction
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" use snippets
+" coc-snippets
+" use snippets for pop words
 imap <C-l> <Plug>(coc-snippets-expand)
 " press Enter jump to next snippets selection
 let g:coc_snippet_next = '<cr>'
