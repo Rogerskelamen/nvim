@@ -292,7 +292,7 @@ autocmd Vimenter * hi Normal guibg=NONE ctermbg=NONE
 
 " for material colorscheme config
 let g:material_terminal_italics = 1
-let g:material_theme_style = 'palenight'
+let g:material_theme_style      = 'palenight'
 colorscheme material
 
 " for onedark colorscheme config
@@ -300,9 +300,9 @@ colorscheme material
 " colorscheme onedark
 
 " neodark colorscheme config
-" let g:neodark#background = '#202020'
-" let g:neodark#terminal_transparent = 1 " default: 0
-" let g:neodark#use_256color = 1 " default: 0
+" let g:neodark#background           = '#202020' " use black one as background
+" let g:neodark#terminal_transparent = 1         " default: 0
+" let g:neodark#italics              = 1         " default: 0
 " colorscheme neodark
 
 " for seoul256 colorscheme config
