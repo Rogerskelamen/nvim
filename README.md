@@ -127,6 +127,10 @@ There are some other options to choose:
 
   A eye-protected theme (*it changes along with the time, if you don't like the light background, don't turn it on*)
 
+- [dracula](https://draculatheme.com/vim)
+
+  The very classic colorscheme, the Dracula!
+
 **You may find all the color scheme have their transparent background, but it is actually configured by Neovim. You can release the certain line to turn on/off the effect:**
 
 ```vim
