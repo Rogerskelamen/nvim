@@ -291,9 +291,9 @@ autocmd Vimenter * hi Normal guibg=NONE ctermbg=NONE
 " set background=light " for the light version
 
 " for material colorscheme config
- let g:material_terminal_italics = 1
- let g:material_theme_style      = 'palenight'
- colorscheme material
+let g:material_terminal_italics = 1
+let g:material_theme_style      = 'palenight'
+colorscheme material
 
 " for onedark colorscheme config
 " let g:onedark_terminal_italics = 1
@@ -401,7 +401,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf' }
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-" Plug 'lambdalisue/glyph-palette.vim'
 
 " markdown
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
@@ -439,9 +438,11 @@ Plug 'godlygeek/tabular'
 Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'itchyny/vim-cursorword'
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 
 " frontend enhance
+Plug 'ap/vim-css-color'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/html5.vim'
@@ -556,16 +557,6 @@ function! s:show_documentation()
 	endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * call <SID>highlight_symbol()
-
-function! s:highlight_symbol()
-	if (&filetype ==# "python" || &filetype ==# "startify" || &filetype ==# "nerdtree" || &filetype ==# "tagbar" || &filetype ==# "markdown")
-		return
-	else
-		execute "silent call CocActionAsync('highlight')"
-	endif
-endfunction
 
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
@@ -664,6 +655,9 @@ let g:webdevicons_conceal_nerdtree_brackets=1
 " ======================== NerdCommenter =========================
 let g:NERDSpaceDelims=1
 autocmd filetype python let g:NERDSpaceDelims=0
+
+" ======================== CursorWord =========================
+let g:cursorword = 0
 
 
 " ========================= rainbow config =========================
