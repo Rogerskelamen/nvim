@@ -620,7 +620,7 @@ autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
 nnoremap <LEADER>p :NERDTreeFind<CR>
 nnoremap <Tab> :NERDTreeToggle<CR>
 noremap <C-f> <C-i>
-:let g:NERDTreeWinSize=25
+let g:NERDTreeWinSize=25
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif " 如果是最后一个窗口就关闭nerdTree
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif  " 如果是最后一个标签就关闭nerdTree
 " 设置NERDTree和nerdtree-git联动
@@ -644,24 +644,17 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 let g:webdevicons_conceal_nerdtree_brackets=1
 
 
-" ======================== glyph-paletee =========================
-" augroup my-glyph-palette
-  " autocmd! *
-  " autocmd FileType fern call glyph_palette#apply()
-  " autocmd FileType nerdtree,startify call glyph_palette#apply()
-" augroup END
-
-
 " ======================== NerdCommenter =========================
 let g:NERDSpaceDelims=1
 autocmd filetype python let g:NERDSpaceDelims=0
 
+
 " ======================== CursorWord =========================
-let g:cursorword = 0
+let g:cursorword = 0 " close the cursor word function by default
 
 
 " ========================= rainbow config =========================
-let g:rainbow_active = 1
+let g:rainbow_active = 1 " activate rainbow by default
 " 使rainbow在NERDTree中不起作用
 let g:rainbow_conf = {
 	\ 'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
