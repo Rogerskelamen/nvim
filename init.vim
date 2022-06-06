@@ -291,9 +291,9 @@ autocmd Vimenter * hi Normal guibg=NONE ctermbg=NONE
 " set background=light " for the light version
 
 " for material colorscheme config
-" let g:material_terminal_italics = 1
-" let g:material_theme_style      = 'palenight'
-" colorscheme material
+let g:material_terminal_italics = 1
+let g:material_theme_style      = 'palenight'
+colorscheme material
 
 " for onedark colorscheme config
 " let g:onedark_terminal_italics = 1
@@ -315,9 +315,6 @@ autocmd Vimenter * hi Normal guibg=NONE ctermbg=NONE
 " for dracula colorscheme config
 " colorscheme dracula
 
-" catppuccin colorscheme
-colorscheme catppuccin_mocha
-
 " for cosmic_latte colorscheme config
 " if strftime('%H') >= 7 && strftime('%H') < 19
 	" set background=light
@@ -327,6 +324,9 @@ colorscheme catppuccin_mocha
 	" let g:airline_theme='cosmic_latte_dark'
 " endif
 " colorscheme cosmic_latte
+
+" catppuccin colorscheme
+" colorscheme catppuccin_mocha
 
 " =========================
 " set for airline theme
