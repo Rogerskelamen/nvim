@@ -291,9 +291,9 @@ autocmd Vimenter * hi Normal guibg=NONE ctermbg=NONE
 " set background=light " for the light version
 
 " for material colorscheme config
-let g:material_terminal_italics = 1
-let g:material_theme_style      = 'palenight'
-colorscheme material
+" let g:material_terminal_italics = 1
+" let g:material_theme_style      = 'palenight'
+" colorscheme material
 
 " for onedark colorscheme config
 " let g:onedark_terminal_italics = 1
@@ -313,7 +313,10 @@ colorscheme material
 " colorscheme nova
 
 " for dracula colorscheme config
-"colorscheme dracula
+" colorscheme dracula
+
+" catppuccin colorscheme
+colorscheme catppuccin_mocha
 
 " for cosmic_latte colorscheme config
 " if strftime('%H') >= 7 && strftime('%H') < 19
@@ -428,6 +431,7 @@ Plug 'trevordmiller/nova-vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'haystackandroid/cosmic_latte'
 Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 " Plug 'connorholyday/vim-snazzy'
 
 " code edit

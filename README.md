@@ -131,6 +131,10 @@ There are some other options to choose:
 
   The very classic colorscheme, the Dracula!
 
+- [catppuccin_mocha](https://github.com/catppuccin/vim)
+
+  A very elegant theme, really nice!
+
 **You may find all the color scheme have their transparent background, but it is actually configured by Neovim. You can release the certain line to turn on/off the effect:**
 
 ```vim
