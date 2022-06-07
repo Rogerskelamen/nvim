@@ -248,7 +248,7 @@ func! CompileRunGcc()
 		set splitbelow
 		:sp
 		:res -5
-		term javac % && time java %<
+		:term javac % && time java %<
 	elseif &filetype == 'sh'
 		:!time bash %
 	elseif &filetype == 'python'
@@ -263,6 +263,8 @@ func! CompileRunGcc()
 	elseif &filetype == 'tex'
 		silent! exec "VimtexStop"
 		silent! exec "VimtexCompile"
+	elseif &filetype == 'vim'
+		:so %
 	elseif &filetype == 'dart'
 		exec "CocCommand flutter.run -d ".g:flutter_default_device." ".g:flutter_run_args
 		silent! exec "CocCommand flutter.dev.openDevLog"
