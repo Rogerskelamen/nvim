@@ -321,7 +321,7 @@ Now I use a static neovim logo
 
 - `g=`: go to next git change
 
-*The <kbd>Ctrl</kbd>+<kbd>i</kbd> has been mapped as nerdtree, so I map the <kbd>Ctrl</kbd>+<kbd>f</kbd> to return the next changed area*
+*The <kbd>Ctrl</kbd>+<kbd>i</kbd> has been mapped as nerdtree, so I map the <kbd>Ctrl</kbd>+<kbd>l</kbd> to return the next changed area*
 
 ## Markdown Usage
 
