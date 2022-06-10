@@ -77,7 +77,7 @@ noremap srh <C-w>b<C-w>K
 noremap srv <C-w>b<C-w>H
 
 " Open the vimrc file anytime
-noremap <LEADER>rc :e $HOME/.config/nvim/init.vim<CR>
+noremap <LEADER>rc :e $MYVIMRC<CR>
 noremap <LEADER>sc :set spell!<CR>
 
 " tab set
