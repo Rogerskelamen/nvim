@@ -266,8 +266,12 @@ func! CompileRunGcc()
 	elseif &filetype == 'vim'
 		:so %
 	elseif &filetype == 'dart'
-		exec "CocCommand flutter.run -d ".g:flutter_default_device." ".g:flutter_run_args
-		silent! exec "CocCommand flutter.dev.openDevLog"
+		set splitbelow
+		:sp
+		:res -5
+		:term dart %
+		" exec "CocCommand flutter.run -d ".g:flutter_default_device." ".g:flutter_run_args
+		" silent! exec "CocCommand flutter.dev.openDevLog"
 	elseif &filetype == 'javascript'
 		set splitbelow
 		:sp
