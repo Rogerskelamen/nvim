@@ -7,7 +7,7 @@
         "html",
         "python"
         // "c",
-        //"cpp"
+        // "cpp"
     ],
     "snippets.ultisnips.directories": [
         // vim-snippets扩展的代码片段
@@ -40,7 +40,6 @@
         "less"
     ],
     // 设置emmet
-    "emmet.priority": 9999,
     "emmet.includeLanguages": {
         "vue-html": "html"
     },

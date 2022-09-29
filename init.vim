@@ -43,7 +43,7 @@ noremap <LEADER>/ :nohlsearch<CR>
 " 普通键位映射
 "----------------------------
 " Save and quit
-noremap S :w<CR>
+nnoremap S :w<CR>
 noremap Q :q<CR>
 noremap <C-q> :qa<CR>
 
@@ -111,6 +111,8 @@ noremap <C-c> ZZ
 
 " Press space twice to jump to the next '<++>' and edit it
 " noremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
+" Press space twice to quickly get into the popup window
+noremap <LEADER><LEADER> <C-w><C-w>
 
 " Disable the default s key
 noremap s <nop>
