@@ -307,15 +307,15 @@ set background=dark " for the dark version
 " set background=light " for the light version
 
 " for material colorscheme config
-" let g:material_terminal_italics = 1
-" let g:material_theme_style      = 'palenight'
-" colorscheme material
+let g:material_terminal_italics = 1
+let g:material_theme_style      = 'palenight'
+colorscheme material
 
 " for papercolor colorscheme config
 
 " for onedark colorscheme config
-let g:onedark_terminal_italics = 1
-colorscheme onedark
+" let g:onedark_terminal_italics = 1
+" colorscheme onedark
 
 " neodark colorscheme config
 " let g:neodark#background           = '#202020' " use black one as background
