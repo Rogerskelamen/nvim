@@ -227,7 +227,7 @@ set splitright " behavior when split vertically
 set splitbelow " behavior when split horizontally
 
 " set different filetype indent behavior
-autocmd FileType html,css,javascript,vue,markdown setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType c,html,css,javascript,vue,markdown setlocal shiftwidth=2 softtabstop=2 expandtab
 
 
 " ===
@@ -291,8 +291,15 @@ endfunc
 " ===== 配色方案
 " ===
 
-" 设置背景透明度
+
+" set the normal text backgroud to none(which makes transparency)
 autocmd Vimenter * hi Normal guibg=NONE ctermbg=NONE
+
+" redifine some signs colortheme
+autocmd Vimenter * hi ErrorMsg guibg=#d1666a guifg=Black
+autocmd Vimenter * hi CocErrorSign guifg=#d1666a guifg=Black
+autocmd Vimenter * hi CocInfoSign guibg=#353b45 guifg=Black
+autocmd Vimenter * hi CocWarningSign guifg=#d1cd66 guifg=Black
 
 " 亮暗方案
 " set background=dark " for the dark version
