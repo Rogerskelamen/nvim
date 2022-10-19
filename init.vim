@@ -295,24 +295,27 @@ endfunc
 " set the normal text backgroud to none(which makes transparency)
 autocmd Vimenter * hi Normal guibg=NONE ctermbg=NONE
 
-" redifine some signs colortheme
-autocmd Vimenter * hi ErrorMsg guibg=#d1666a guifg=Black
-autocmd Vimenter * hi CocErrorSign guifg=#d1666a guifg=Black
-autocmd Vimenter * hi CocInfoSign guibg=#353b45 guifg=Black
-autocmd Vimenter * hi CocWarningSign guifg=#d1cd66 guifg=Black
+" redifine some signs colorscheme
+autocmd Vimenter * hi ErrorMsg guibg=NONE guifg=#ff6d67
+autocmd Vimenter * hi CocErrorSign guifg=#ff6d67
+autocmd Vimenter * hi CocErrorFloat guifg=#ff6d67
+autocmd Vimenter * hi CocInfoSign guibg=#353b45
+autocmd Vimenter * hi CocWarningSign guifg=#d1cd66
 
 " 亮暗方案
-" set background=dark " for the dark version
+set background=dark " for the dark version
 " set background=light " for the light version
 
 " for material colorscheme config
-let g:material_terminal_italics = 1
-let g:material_theme_style      = 'palenight'
-colorscheme material
+" let g:material_terminal_italics = 1
+" let g:material_theme_style      = 'palenight'
+" colorscheme material
+
+" for papercolor colorscheme config
 
 " for onedark colorscheme config
-" let g:onedark_terminal_italics = 1
-" colorscheme onedark
+let g:onedark_terminal_italics = 1
+colorscheme onedark
 
 " neodark colorscheme config
 " let g:neodark#background           = '#202020' " use black one as background
@@ -329,16 +332,6 @@ colorscheme material
 
 " for dracula colorscheme config
 " colorscheme dracula
-
-" for cosmic_latte colorscheme config
-" if strftime('%H') >= 7 && strftime('%H') < 19
-	" set background=light
-	" let g:airline_theme='cosmic_latte_light'
-" else
-	" set background=dark
-	" let g:airline_theme='cosmic_latte_dark'
-" endif
-" colorscheme cosmic_latte
 
 " catppuccin colorscheme
 " colorscheme catppuccin_mocha
@@ -444,7 +437,6 @@ Plug 'joshdick/onedark.vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'trevordmiller/nova-vim'
 Plug 'junegunn/seoul256.vim'
-Plug 'haystackandroid/cosmic_latte'
 Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 " Plug 'connorholyday/vim-snazzy'
