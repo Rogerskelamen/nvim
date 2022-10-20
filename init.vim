@@ -119,6 +119,9 @@ noremap s <nop>
 
 
 " ============================ Editor behavior =======================
+let &t_ut=''
+set autochdir " always change directories
+set scrolloff=5  " 上下滚动间隔距离为5行
 set exrc
 set secure
 set list
@@ -136,31 +139,8 @@ set virtualedit=block
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 
-" ===
-" === Terminal Behaviors
-" ===
-autocmd TermOpen term://* startinsert   " 打开终端之后直接进入写入
-" quick return to normal mode
-tnoremap <C-N> <C-\><C-N>
-tnoremap <C-O> <C-\><C-N>:q<CR>
-" quick open a terminal
-noremap <LEADER><CR> :call OpenTerminal()<CR>
-func! OpenTerminal()
-	if exists("g:term_exist")
-		:sp
-		:res -5
-		:buffer term
-		:normal i
-	else
-		let g:term_exist = 1
-		:sp
-		:res -5
-		:term
-	endif
-endfunc
-
 "----------------------------
-" 全局的部分设置
+" filetype config
 "----------------------------
 set encoding=utf-8
 set fileencodings=utf-8,gbk " 写入文件时采用的编码类型
@@ -171,11 +151,8 @@ filetype plugin on " turn on corresponding file plugin
 filetype indent on " use current filetype to indent
 " set mouse=a       " 设置是否可用鼠标
 set clipboard=unnamedplus " 将系统的剪切板和vim共享
-let &t_ut=''
-set autochdir " always change directories
-set scrolloff=5  " 上下滚动间隔距离为5行
 " noremap <leader>w :%s/\s\+$//<cr>:let @/=''<CR>
-" 缓存所有的文件历史记录
+" cache all the file edit history
 silent !mkdir -p $HOME/.config/nvim/tmp/backup
 silent !mkdir -p $HOME/.config/nvim/tmp/undo
 "silent !mkdir -p $HOME/.config/nvim/tmp/sessions
@@ -211,7 +188,7 @@ set smartcase
 "-------------------------------------
 " text indent/fold
 "-------------------------------------
-set expandtab
+set noexpandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -226,8 +203,29 @@ set formatoptions-=tc
 set splitright " behavior when split vertically
 set splitbelow " behavior when split horizontally
 
-" set different filetype indent behavior
-autocmd FileType c,html,css,javascript,vue,markdown setlocal shiftwidth=2 softtabstop=2 expandtab
+
+" ===
+" === Terminal Behaviors
+" ===
+autocmd TermOpen term://* startinsert   " 打开终端之后直接进入写入
+" quick return to normal mode
+tnoremap <C-N> <C-\><C-N>
+tnoremap <C-O> <C-\><C-N>:q<CR>
+" quick open a terminal
+noremap <LEADER><CR> :call OpenTerminal()<CR>
+func! OpenTerminal()
+	if exists("g:term_exist")
+		:sp
+		:res -5
+		:buffer term
+		:normal i
+	else
+		let g:term_exist = 1
+		:sp
+		:res -5
+		:term
+	endif
+endfunc
 
 
 " ===
