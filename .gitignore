@@ -1,3 +1,4 @@
-plugged
-tmp
+*.swp
 .DS_Store
+plugged/
+tmp/
