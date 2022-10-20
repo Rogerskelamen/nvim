@@ -743,16 +743,6 @@ let g:javascript_plugin_jsdoc = 1
 let g:instant_markdown_autostart = 0  " not to autostart
 let g:instant_markdown_mathjax = 1  " use latex lang
 
-autocmd Filetype markdown noremap ,b a****<Esc>hi
-autocmd Filetype markdown noremap ,i a**<Esc>i
-autocmd Filetype markdown noremap ,u a<u></u><Esc>3hi
-autocmd Filetype markdown noremap ,c a``````<Esc>2hi<CR><Esc>kA
-autocmd Filetype markdown noremap ,$ a$$<CR>$$<Esc>O
-autocmd Filetype markdown noremap ,k a<kbd></kbd><Esc>5hi
-
-" Create markmap from the whole file
-autocmd Filetype markdown nnoremap <Leader>z :CocCommand markmap.watch<CR>
-
 
 " ======================== vim-markdown =========================
 set conceallevel=2
