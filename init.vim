@@ -11,7 +11,7 @@
 
 " Author: @Rogerskelamen
 
-" import external file
+" import external logo file
 source $HOME/.config/nvim/logo.vim
 
 " correct checkhealth
@@ -149,7 +149,7 @@ set nocompatible " turn off the side-effects of vi
 filetype on " turn on the filetype detect
 filetype plugin on " turn on corresponding file plugin
 filetype indent on " use current filetype to indent
-" set mouse=a       " 设置是否可用鼠标
+" set mouse=a       " set whether to use mouse
 set clipboard=unnamedplus " 将系统的剪切板和vim共享
 " noremap <leader>w :%s/\s\+$//<cr>:let @/=''<CR>
 " cache all the file edit history
@@ -169,6 +169,7 @@ endif
 "------------------------------
 syntax on
 set number
+" set relativenumber
 set cursorline
 set wrap
 set wildmenu
@@ -286,21 +287,24 @@ endfunc
 
 
 " ===
-" ===== 配色方案
+" === Color Scheme
 " ===
 
+" use 24-bit (true colors) mode
+set termguicolors
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " set the normal text backgroud to none(which makes transparency)
 autocmd Vimenter * hi Normal guibg=NONE ctermbg=NONE
 
-" redifine some signs colorscheme
+" redefine some signs colorscheme
 autocmd Vimenter * hi ErrorMsg guibg=NONE guifg=#ff6d67
 autocmd Vimenter * hi CocErrorSign guifg=#ff6d67
 autocmd Vimenter * hi CocErrorFloat guifg=#ff6d67
 autocmd Vimenter * hi CocInfoSign guibg=#353b45
 autocmd Vimenter * hi CocWarningSign guifg=#d1cd66
 
-" 亮暗方案
+" background scheme
 set background=dark " for the dark version
 " set background=light " for the light version
 
@@ -309,7 +313,9 @@ let g:material_terminal_italics = 1
 let g:material_theme_style      = 'palenight'
 colorscheme material
 
-" for papercolor colorscheme config
+" switch to snazzy config
+" let g:SnazzyTransparent = 1
+" colorscheme snazzy
 
 " for onedark colorscheme config
 " let g:onedark_terminal_italics = 1
@@ -331,33 +337,8 @@ colorscheme material
 " for dracula colorscheme config
 " colorscheme dracula
 
-" catppuccin colorscheme
+" for catppuccin colorscheme
 " colorscheme catppuccin_mocha
-
-" =========================
-" set for airline theme
-" let g:airline_theme='material'
-" let g:airline_theme='onedark'
-" let g:airline_theme='nova'
-" let g:airline_theme='atomic'
-" let g:airline_theme='bubblegum'
-
-
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-	if (has("nvim"))
-		"For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-		let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-	endif
-	"For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-	"Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-	" < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-	if (has("termguicolors"))
-		set termguicolors
-	endif
-endif
 
 
 
@@ -437,7 +418,7 @@ Plug 'trevordmiller/nova-vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-" Plug 'connorholyday/vim-snazzy'
+Plug 'connorholyday/vim-snazzy'
 
 " code edit
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
