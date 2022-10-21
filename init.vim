@@ -327,9 +327,6 @@ colorscheme material
 " let g:neodark#italics              = 1         " default: 0
 " colorscheme neodark
 
-" for seoul256 colorscheme config
-" colorscheme seoul256
-
 " for nova colorscheme config
 " let g:nova_transparent = 1
 " colorscheme nova
@@ -337,9 +334,10 @@ colorscheme material
 " for dracula colorscheme config
 " colorscheme dracula
 
-" for catppuccin colorscheme
-" colorscheme catppuccin_mocha
 
+" for nvim catppuccin
+let g:catppuccin_flavour = "frappe" " latte, frappe, macchiato, mocha
+colorscheme catppuccin
 
 
 " =================================
@@ -415,10 +413,9 @@ Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'joshdick/onedark.vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'trevordmiller/nova-vim'
-Plug 'junegunn/seoul256.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
-" Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'connorholyday/vim-snazzy'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " code edit
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -491,6 +488,7 @@ let g:coc_global_extensions = [
 	\ 'coc-java',
 	\ 'coc-go',
 	\ 'coc-css',
+	\ 'coc-lua',
 	\ 'coc-clangd',
 	\ 'coc-markmap',
 	\ 'coc-tabnine',
