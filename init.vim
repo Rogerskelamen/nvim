@@ -313,7 +313,7 @@ let g:everforest_background                = 'medium' " hard, medium[default], s
 let g:everforest_transparent_background    = 2
 "let g:everforest_enable_italic             = 1
 let g:everforest_better_performance        = 1
-let g:everforest_cursor                    = 'orange' " auto[default], red, orange, yellow, green, aqua, blue, purple
+let g:everforest_cursor                    = 'auto' " auto[default], red, orange, yellow, green, aqua, blue, purple
 let g:everforest_spell_foreground          = 'colored'
 " let g:everforest_ui_contrast               = 'high'
 let g:everforest_diagnostic_text_highlight = 1
@@ -503,12 +503,12 @@ let g:coc_global_extensions = [
 	\ 'coc-calc'
 	\ ]
 
-" if has("nvim-0.5.0") || has("patch-8.1.1564")
-	" " " Recently vim can merge signcolumn and number column into one
-	" set signcolumn=number
-" else
-	" set signcolumn=yes
-" endif
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+	" Recently vim can merge signcolumn and number column into one
+	set signcolumn=number
+else
+	set signcolumn=yes
+endif
 
 " Use <tab> for trigger completion and navigate to the next complete item
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
