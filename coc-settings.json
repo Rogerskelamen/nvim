@@ -34,9 +34,9 @@
         "<tab>": "quit",
         "ss": "open:split",
         "v": "open:vsplit",
-        "H": "toggleHidden",
         "D": "delete",
         "u": "gotoParent",
+        "h": false,
         "l": false
     },
     // 对vetur进行配置

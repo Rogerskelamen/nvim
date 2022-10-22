@@ -308,10 +308,23 @@ autocmd Vimenter * hi Normal guibg=NONE ctermbg=NONE
 set background=dark " for the dark version
 " set background=light " for the light version
 
+" for everforest colorscheme config
+let g:everforest_background                = 'medium' " hard, medium[default], soft
+let g:everforest_transparent_background    = 2
+"let g:everforest_enable_italic             = 1
+let g:everforest_better_performance        = 1
+let g:everforest_cursor                    = 'orange' " auto[default], red, orange, yellow, green, aqua, blue, purple
+let g:everforest_spell_foreground          = 'colored'
+" let g:everforest_ui_contrast               = 'high'
+let g:everforest_diagnostic_text_highlight = 1
+let g:everforest_diagnostic_line_highlight = 1
+let g:everforest_diagnostic_virtual_text   = 1
+colorscheme everforest
+
 " for material colorscheme config
-let g:material_terminal_italics = 1
-let g:material_theme_style      = 'palenight'
-colorscheme material
+" let g:material_terminal_italics = 1
+" let g:material_theme_style      = 'palenight'
+" colorscheme material
 
 " switch to snazzy config
 " let g:SnazzyTransparent = 1
@@ -335,8 +348,8 @@ colorscheme material
 " colorscheme dracula
 
 " for nvim catppuccin
-lua require('colorscheme')
-colorscheme catppuccin
+" lua require('colorscheme')
+" colorscheme catppuccin
 
 
 " =================================
@@ -403,6 +416,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'  " 设置语法高亮和自动缩进
 
 " My beautiful colorscheme
+Plug 'sainnhe/everforest'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'joshdick/onedark.vim'
 Plug 'KeitaNakamura/neodark.vim'
@@ -489,12 +503,12 @@ let g:coc_global_extensions = [
 	\ 'coc-calc'
 	\ ]
 
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-	" " Recently vim can merge signcolumn and number column into one
-	set signcolumn=number
-else
-	set signcolumn=yes
-endif
+" if has("nvim-0.5.0") || has("patch-8.1.1564")
+	" " " Recently vim can merge signcolumn and number column into one
+	" set signcolumn=number
+" else
+	" set signcolumn=yes
+" endif
 
 " Use <tab> for trigger completion and navigate to the next complete item
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by

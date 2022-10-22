@@ -111,9 +111,13 @@ let g:coc_global_extensions = ['coc-explorer']
 
 ## Theme
 
-> My neovim use the [material theme](https://github.com/kaicataldo/material.vim) as default
+> My Neovim now use the [everforest](https://github.com/sainnhe/everforest) as default
 
 There are some other options to choose:
+
+- [material theme](https://github.com/kaicataldo/material.vim)
+
+  A nice dark theme for I use it for a long time
 
 - [onedark](https://github.com/joshdick/onedark.vim)
 
