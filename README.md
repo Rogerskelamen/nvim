@@ -65,6 +65,8 @@ You can change it into other plugin manager as you wish
 
 #### the extensions in Conquer of Completion
 
+- `coc-explorer`
+
 - `coc-yank`
 
 - `coc-vimlsp`

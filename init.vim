@@ -483,7 +483,6 @@ let g:coc_global_extensions = [
 	\ 'coc-java',
 	\ 'coc-go',
 	\ 'coc-css',
-	\ 'coc-lua',
 	\ 'coc-clangd',
 	\ 'coc-markmap',
 	\ 'coc-tabnine',
