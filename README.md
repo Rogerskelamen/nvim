@@ -133,6 +133,7 @@ There are some other options to choose:
 
 ```vim
 set termguicolors
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 ```
 
 *ps: and I have set it for you*
