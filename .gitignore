@@ -1,5 +1,6 @@
 *.swp
 .DS_Store
+after/
 lua/catppuccin/
 plugged/
 tmp/

@@ -311,11 +311,11 @@ set background=dark " for the dark version
 " for everforest colorscheme config
 let g:everforest_background                = 'medium' " hard, medium[default], soft
 let g:everforest_transparent_background    = 2
-"let g:everforest_enable_italic             = 1
+" let g:everforest_enable_italic             = 1
 let g:everforest_better_performance        = 1
 let g:everforest_cursor                    = 'auto' " auto[default], red, orange, yellow, green, aqua, blue, purple
 let g:everforest_spell_foreground          = 'colored'
-" let g:everforest_ui_contrast               = 'high'
+let g:everforest_ui_contrast               = 'low'
 let g:everforest_diagnostic_text_highlight = 1
 let g:everforest_diagnostic_line_highlight = 1
 let g:everforest_diagnostic_virtual_text   = 1
@@ -410,7 +410,7 @@ Plug 'kdheepak/lazygit.nvim'
 " Plug 'cohama/agit.vim'
 
 " colourful
-Plug 'luochen1990/rainbow'
+" Plug 'luochen1990/rainbow'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'  " 设置语法高亮和自动缩进
