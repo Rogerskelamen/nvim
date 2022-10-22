@@ -348,7 +348,7 @@ colorscheme everforest
 " colorscheme dracula
 
 " for nvim catppuccin
-" lua require('colorscheme')
+" lua require('user.colorscheme')
 " colorscheme catppuccin
 
 
@@ -388,7 +388,7 @@ endif
 " ===============================
 call plug#begin('~/.config/nvim/plugged')
 
-" eleline - a elegant statusline
+" eleline -- a elegant statusline
 Plug 'Rogerskelamen/eleline.vim'
 " Plug 'ojroques/vim-scrollstatus'
 
@@ -396,6 +396,7 @@ Plug 'Rogerskelamen/eleline.vim'
 Plug 'kevinhwang91/rnvimr'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf' }
+Plug 'is0n/fm-nvim'
 
 " markdown
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
@@ -410,7 +411,7 @@ Plug 'kdheepak/lazygit.nvim'
 " Plug 'cohama/agit.vim'
 
 " colourful
-" Plug 'luochen1990/rainbow'
+Plug 'luochen1990/rainbow'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'  " 设置语法高亮和自动缩进
@@ -628,30 +629,23 @@ let g:cursorword = 0 " close the cursor word function by default
 let g:rainbow_active = 1 " activate rainbow by default
 " 使rainbow在NERDTree中不起作用
 let g:rainbow_conf = {
-	\ 'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+	\ 'guifgs': ['#ddffaa', '#7fbbb3', '#e67e80', '#fff9e8', '#d699b6'],
 	\ 'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-	\ 'operators': '_,_',
 	\ 'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
 	\ 'separately': {
 		\ '*': {},
 		\ 'tex': {
 			\	'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-			\	},
+		\	},
 		\ 'lisp': {
 			\	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-			\   },
+		\   },
 		\ 'vim': {
 			\	'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-			\	},
+		\	},
 		\ 'css': 0,
-		\ 'nerdtree': 0,
 		\ }
 	\ }
-" let g:rainbow_conf = {
-" \	'separately': {
-" \		'nerdtree': 0,
-" \	}
-" \}
 
 
 " ======================== auto-pairs =========================
@@ -673,9 +667,9 @@ let g:tagbar_type_markdown = {
 		\ 'h:headings',
 		\ 'l:links',
 		\ 'i:images'
-		\ ],
-		\ 'sort' : 0
-		\ }
+	\ ],
+	\ 'sort' : 0
+\ }
 
 
 " ======================== Undotree =========================
