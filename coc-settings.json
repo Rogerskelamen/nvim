@@ -23,6 +23,22 @@
     // "clangd.fallbackFlags": [
         // "pkg-config --cflags gtk+-3.0"
     // ],
+    "explorer.width": 25,
+    "explorer.icon.source": "vim-devicons",
+    "explorer.icon.enableNerdfont": true,
+    "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
+    "explorer.buffer.root.template": "[icon & 1] OPENED FILES",
+    "explorer.file.root.template": "[icon & 1] PROJECT ([root])",
+    "explorer.keyMappings.global": {
+        "m": "actionMenu",
+        "<tab>": "quit",
+        "ss": "open:split",
+        "v": "open:vsplit",
+        "H": "toggleHidden",
+        "D": "delete",
+        "u": "gotoParent",
+        "l": false
+    },
     // 对vetur进行配置
     "vetur.ignoreProjectWarning": true,
     // coc更新的频率

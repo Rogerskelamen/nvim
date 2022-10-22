@@ -41,6 +41,8 @@ If you use neovim-win64, you may want to apply [this branch](https://github.com/
 
 3. get into your neovim and add plugin: `:PlugInstall`(*optional but recommended*)
 
+4. *(optional)if you want to use semshi, you have to run `:UpdateRemotePlugins`(see [#60](https://github.com/numirias/semshi/issues/60))*
+
 ## Dependencies
 
 - `python3`
@@ -115,23 +117,15 @@ There are some other options to choose:
 
 - [neodark](https://github.com/KeitaNakamura/neodark.vim)
 
-- [seoul256](https://github.com/junegunn/seoul256.vim)
-
-  A low-contract theme
-
 - [nova](https://github.com/trevordmiller/nova-vim)
 
   A low-contract theme with cold color (*mainly blue*)
-
-- [cosmic_latte](https://github.com/haystackandroid/cosmic_latte)
-
-  A eye-protected theme (*it changes along with the time, if you don't like the light background, don't turn it on*)
 
 - [dracula](https://draculatheme.com/vim)
 
   The very classic colorscheme, the Dracula!
 
-- [catppuccin_mocha](https://github.com/catppuccin/vim)
+- [catppuccin](https://github.com/catppuccin/nvim)
 
   A very elegant theme, really nice!
 
@@ -275,7 +269,7 @@ Now I use a static neovim logo
 
 ## Plugin Hot Key
 
-- <kbd>Ctrl</kbd>+<kbd>i</kbd>: open NerdTree
+- <kbd>Ctrl</kbd>+<kbd>i</kbd>: open coc-explorer
 
 - `tt`: open the Tagbar
 
@@ -321,7 +315,7 @@ Now I use a static neovim logo
 
 - `g=`: go to next git change
 
-*The <kbd>Ctrl</kbd>+<kbd>i</kbd> has been mapped as nerdtree, so I map the <kbd>Ctrl</kbd>+<kbd>l</kbd> to return the next changed area*
+*The <kbd>Ctrl</kbd>+<kbd>i</kbd> has been mapped as coc-explorer, so I map the <kbd>Ctrl</kbd>+<kbd>l</kbd> to return the next changed area*
 
 ## Markdown Usage
 

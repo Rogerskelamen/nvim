@@ -149,7 +149,7 @@ set nocompatible " turn off the side-effects of vi
 filetype on " turn on the filetype detect
 filetype plugin on " turn on corresponding file plugin
 filetype indent on " use current filetype to indent
-" set mouse=a       " set whether to use mouse
+set mouse=       " set whether to use mouse
 set clipboard=unnamedplus " 将系统的剪切板和vim共享
 " noremap <leader>w :%s/\s\+$//<cr>:let @/=''<CR>
 " cache all the file edit history
@@ -336,8 +336,8 @@ colorscheme material
 
 
 " for nvim catppuccin
-let g:catppuccin_flavour = "frappe" " latte, frappe, macchiato, mocha
-colorscheme catppuccin
+" let g:catppuccin_flavour = 'frappe' " latte, frappe, macchiato, mocha
+" colorscheme catppuccin
 
 
 " =================================
@@ -384,11 +384,6 @@ Plug 'Rogerskelamen/eleline.vim'
 Plug 'kevinhwang91/rnvimr'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf' }
-
-" Nerdtree
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " markdown
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
@@ -450,7 +445,7 @@ call plug#end()
 	" \ startify#pad(split(system('figlet -f 3d NEOVIM'), '\n'))
 let g:startify_custom_header = neovim_logo
 " 配合NerdTree的配置
-let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
+" let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 
 
 " ======================= file Navigation ====================
@@ -474,6 +469,7 @@ set hidden
 set shortmess+=c
 
 let g:coc_global_extensions = [
+	\ 'coc-explorer',
 	\ 'coc-yank',
 	\ 'coc-vimlsp',
 	\ 'coc-syntax',
@@ -603,37 +599,13 @@ autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
 autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
 
 
-" ========================== NerdTree Config =======================
-nnoremap <LEADER>p :NERDTreeFind<CR>
-nnoremap <Tab> :NERDTreeToggle<CR>
+" ========================== Coc Explorer =======================
+nnoremap <Tab> :CocCommand explorer<CR>
 noremap <C-l> <C-i>
-let g:NERDTreeWinSize=25
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif " 如果是最后一个窗口就关闭nerdTree
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif  " 如果是最后一个标签就关闭nerdTree
-" 设置NERDTree和nerdtree-git联动
-let g:NERDTreeGitStatusUseNerdFonts = 1
-let g:NERDTreeGitStatusShowIgnored = 1
-let g:NERDTreeGitStatusConcealBrackets = 0
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-	\ 'Modified'  :'✹',
-	\ 'Staged'    :'✚',
-	\ 'Untracked' :'✭',
-	\ 'Renamed'   :'➜',
-	\ 'Unmerged'  :'═',
-	\ 'Deleted'   :'✖',
-	\ 'Dirty'     :'✗',
-	\ 'Ignored'   :'☒',
-	\ 'Clean'     :'✔︎',
-	\ 'Unknown'   :'?',
-	\ }
-
-" nerdtree和vim-devicons联动
-let g:webdevicons_conceal_nerdtree_brackets=1
 
 
 " ======================== NerdCommenter =========================
 let g:NERDSpaceDelims=1
-autocmd filetype python let g:NERDSpaceDelims=0
 
 
 " ======================== CursorWord =========================
