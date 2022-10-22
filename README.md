@@ -129,6 +129,14 @@ There are some other options to choose:
 
   A very elegant theme, really nice!
 
+**If your terminal support 24-bit(true color), you can use this command below to make your Neovim also use 24-bit:**
+
+```vim
+set termguicolors
+```
+
+*ps: and I have set it for you*
+
 **You may find all the color scheme have their transparent background, but it is actually configured by Neovim. You can release the certain line to turn on/off the effect:**
 
 ```vim
