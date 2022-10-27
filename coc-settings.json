@@ -1,120 +1,121 @@
 {
-    "suggest.noselect": true,
-    "suggest.enablePreselect": false,
-    "codeLens.enable": true,
-    "coc.preferences.formatOnSaveFiletypes": [
-        "json",
-        "html",
-        "python"
-        // "c",
-        // "cpp"
-    ],
-    "snippets.ultisnips.directories": [
-        // vim-snippets扩展的代码片段
-        "$HOME/.config/nvim/plugged/vim-snippets/UltiSnips/",
-        // 用户自定义代码片段
-        "$HOME/.config/nvim/Ultisnips/"
-    ],
-    "snippets.priority": 999,
-    // 使tsserver可以的communication可以被检测到
-    "tsserver.trace.server": "verbose",
-    "css.trace.server": "verbose",
-    // 对clangd的配置
-    // "clangd.fallbackFlags": [
-        // "pkg-config --cflags gtk+-3.0"
-    // ],
-    "explorer.width": 25,
-    "explorer.icon.source": "vim-devicons",
-    "explorer.icon.enableNerdfont": true,
-    "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
-    "explorer.buffer.root.template": "[icon & 1] OPENED FILES",
-    "explorer.file.root.template": "[icon & 1] PROJECT ([root])",
-    "explorer.keyMappings.global": {
-        "m": "actionMenu",
-        "<tab>": "quit",
-        "ss": "open:split",
-        "v": "open:vsplit",
-        "D": "delete",
-        "u": "gotoParent",
-        "h": false,
-        "l": false
-    },
-    // 对vetur进行配置
-    "vetur.ignoreProjectWarning": true,
-    // coc更新的频率
-    "coc.preferences.extensionUpdateCheck": "daily",
-    // coc-translator
-    "translator.engines": [
-        "bing",
-        "youdao",
-        "haici"
-    ],
-    // 更改Tabnine的设置
-    "tabnine.shortcut": "tabnine",
-    "tabnine.priority": 1,
-    "tabnine.disable_filetypes": [
-        "html",
-        "css",
-        "less"
-    ],
-    // 设置emmet
-    "emmet.includeLanguages": {
-        "vue-html": "html"
-    },
-    "emmet.excludeLanguages": [
-        "markdown",
-        "css",
-        "less"
-    ],
-    // 对python-jedi进行配置
-    "jedi.enable": true,
-    "jedi.startupMessage": false,
-    "jedi.markupKindPreferred": "plaintext",
-    "jedi.executable.command": "jedi-language-server",
-    "jedi.hover.enable": true,
-    "jedi.diagnostics.enable": true,
-    "jedi.diagnostics.didOpen": true,
-    "jedi.diagnostics.didChange": true,
-    "jedi.diagnostics.didSave": true,
-    "jedi.workspace.symbols.ignoreFolders": [
-        ".nox",
-        ".tox",
-        ".venv",
-        "__pycache__",
-        "venv"
-    ],
-    // 补全提示设置的icon
-    "suggest.completionItemKindLabels": {
-        "class": "\uf0e8",
-        "color": "\ue22b",
-        "constant": "\uf8fe",
-        "default": "\uf29c",
-        "enum": "\uf435",
-        "enumMember": "\uf02b",
-        "event": "\ufacd",
-        "field": "\uf93d",
-        "file": "\uf723",
-        "folder": "\uf115",
-        "function": "\u0192",
-        "interface": "\uf417",
-        "keyword": "\uf1de",
-        "method": "\uf6a6",
-        "module": "\uf40d",
-        "operator": "\uf915",
-        "property": "\ue624",
-        "reference": "\ufa46",
-        "snippet": "\ue60b",
-        "struct": "\ufb44",
-        "text": "\ue612",
-        "typeParameter": "\uf728",
-        "unit": "\uf475",
-        "value": "\uf89f",
-        "variable": "\ue71b"
-    },
-    // 自检时设置的icon
-    // "diagnostic.errorSign": "\uf467",
-    "diagnostic.errorSign": "\u279C",
-    "diagnostic.warningSign": "\uf071",
-    "diagnostic.infoSign": "\uf129",
-    "diagnostic.hintSign": "\uf864"
+	"suggest.noselect": true,
+	"suggest.enablePreselect": false,
+	"codeLens.enable": true,
+	"coc.preferences.formatOnSaveFiletypes": [
+		"json",
+		"html",
+		"python"
+		// "c",
+		// "cpp"
+	],
+	"snippets.ultisnips.directories": [
+		// vim-snippets扩展的代码片段
+		"$HOME/.config/nvim/plugged/vim-snippets/UltiSnips/",
+		// 用户自定义代码片段
+		"$HOME/.config/nvim/Ultisnips/"
+	],
+	"snippets.priority": 999,
+	// 使tsserver可以的communication可以被检测到
+	"tsserver.trace.server": "verbose",
+	"css.trace.server": "verbose",
+	// 对clangd的配置
+	// "clangd.fallbackFlags": [
+	// "pkg-config --cflags gtk+-3.0"
+	// ],
+	"explorer.width": 25,
+	"explorer.icon.source": "vim-devicons",
+	"explorer.icon.enableNerdfont": true,
+	"explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
+	"explorer.buffer.root.template": "[icon & 1] OPENED FILES",
+	"explorer.file.root.template": "[icon & 1] PROJECT ([root])",
+	"explorer.keyMappings.global": {
+		"m": "actionMenu",
+		"<tab>": "quit",
+		"ss": "open:split",
+		"v": "open:vsplit",
+		"D": "delete",
+		"H": "toggleHidden",
+		"u": "gotoParent",
+		"h": false,
+		"l": false
+	},
+	// 对vetur进行配置
+	"vetur.ignoreProjectWarning": true,
+	// coc更新的频率
+	"coc.preferences.extensionUpdateCheck": "daily",
+	// coc-translator
+	"translator.engines": [
+		"bing",
+		"youdao",
+		"haici"
+	],
+	// 更改Tabnine的设置
+	"tabnine.shortcut": "tabnine",
+	"tabnine.priority": 1,
+	"tabnine.disable_filetypes": [
+		"html",
+		"css",
+		"less"
+	],
+	// 设置emmet
+	"emmet.includeLanguages": {
+		"vue-html": "html"
+	},
+	"emmet.excludeLanguages": [
+		"markdown",
+		"css",
+		"less"
+	],
+	// 对python-jedi进行配置
+	"jedi.enable": true,
+	"jedi.startupMessage": false,
+	"jedi.markupKindPreferred": "plaintext",
+	"jedi.executable.command": "jedi-language-server",
+	"jedi.hover.enable": true,
+	"jedi.diagnostics.enable": true,
+	"jedi.diagnostics.didOpen": true,
+	"jedi.diagnostics.didChange": true,
+	"jedi.diagnostics.didSave": true,
+	"jedi.workspace.symbols.ignoreFolders": [
+		".nox",
+		".tox",
+		".venv",
+		"__pycache__",
+		"venv"
+	],
+	// 补全提示设置的icon
+	"suggest.completionItemKindLabels": {
+		"class": "\uf0e8",
+		"color": "\ue22b",
+		"constant": "\uf8fe",
+		"default": "\uf29c",
+		"enum": "\uf435",
+		"enumMember": "\uf02b",
+		"event": "\ufacd",
+		"field": "\uf93d",
+		"file": "\uf723",
+		"folder": "\uf115",
+		"function": "\u0192",
+		"interface": "\uf417",
+		"keyword": "\uf1de",
+		"method": "\uf6a6",
+		"module": "\uf40d",
+		"operator": "\uf915",
+		"property": "\ue624",
+		"reference": "\ufa46",
+		"snippet": "\ue60b",
+		"struct": "\ufb44",
+		"text": "\ue612",
+		"typeParameter": "\uf728",
+		"unit": "\uf475",
+		"value": "\uf89f",
+		"variable": "\ue71b"
+	},
+	// 自检时设置的icon
+	// "diagnostic.errorSign": "\uf467",
+	"diagnostic.errorSign": "\u279C",
+	"diagnostic.warningSign": "\uf071",
+	"diagnostic.infoSign": "\uf129",
+	"diagnostic.hintSign": "\uf864"
 }

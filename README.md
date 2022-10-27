@@ -99,6 +99,8 @@ You can change it into other plugin manager as you wish
 
 - `coc-markmap`
 
+- `coc-translator`
+
 - `coc-tabnine`
 
 - `coc-calc`
@@ -194,7 +196,7 @@ These four has been changed into move 5 lines or 5 columns
 
 ### Quick select and change
 
-> Since I integrated the wildfire and vim-surround, it becomes easy to select a code block and change it into other code blocks(or surrounded by some brackets).
+> Since I integrated the wildfire and vim-surround, it becomes easy to select a code block and change it into other code blocks(or surrounded by other brackets).
 
 - <kbd>Enter</kbd>+`S"`: select the code block and make it surrounded by `"`
 
@@ -284,7 +286,7 @@ Now I use a static neovim logo
 
 ## Plugin Hot Key
 
-- <kbd>Ctrl</kbd>+<kbd>i</kbd>: open coc-explorer
+- <kbd>Ctrl</kbd>+<kbd>i</kbd> or <kbd>Tab</kbd>: open coc-explorer
 
 - `tt`: open the Tagbar
 
@@ -294,7 +296,7 @@ Now I use a static neovim logo
 
 - `<LEADER>b`: open the buffers view window
 
-- `<LEADER>r`: open the ranger in neovim
+- `<LEADER>rg`: open the ranger in neovim
 
 - `<LEADER>m`: open the cmus controller in neovim
 
@@ -306,11 +308,9 @@ Now I use a static neovim logo
 
 - `<LEADER>u`: toggle the UndoTree
 
-- `LEADER`+<kbd>Enter</kbd>: open a terminal below your edit space
+- `g]`: go to the next error place
 
-- `[g`: go to the next error place
-
-- `]g`: go to the previous error place
+- `g[`: go to the previous error place
 
 - `gd`: go to the definition
 
@@ -331,6 +331,16 @@ Now I use a static neovim logo
 - `g=`: go to next git change
 
 *The <kbd>Ctrl</kbd>+<kbd>i</kbd> has been mapped as coc-explorer, so I map the <kbd>Ctrl</kbd>+<kbd>l</kbd> to return the next changed area*
+
+## Terminal Usage
+
+Use `LEADER`+<kbd>Enter</kbd> to open a terminal below your edit workspace
+
+- <kbd>Ctrl</kbd>+<kbd>n</kbd>: quit inputting in terminal
+
+- <kbd>Ctrl</kbd>+<kbd>o</kbd>: quick back to editing file
+
+*Warning: by now you could only use one terminal for your editing session, I will continue to improve it.*
 
 ## Markdown Usage
 

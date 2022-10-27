@@ -18,9 +18,6 @@ source $HOME/.config/nvim/logo.vim
 let g:ruby_host_prog = '/opt/homebrew/lib/ruby/gems/3.1.0/bin/neovim-ruby-host'
 let g:loaded_perl_provider = 0
 
-" ============================ polyglot =======================
-let g:polyglot_disabled = ['markdown']    " 禁用polyglot在markdown中的使用
-
 
 " ===
 " === Auto load for first time uses
@@ -143,14 +140,15 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " filetype config
 "----------------------------
 set encoding=utf-8
-set fileencodings=utf-8,gbk " 写入文件时采用的编码类型
-set termencoding=utf-8 " 输出到终端时采用的编码类型
+set fileencodings=utf-8,gbk " encoding when editing
+set termencoding=utf-8 " encoding when enter terminal
 set nocompatible " turn off the side-effects of vi
 filetype on " turn on the filetype detect
 filetype plugin on " turn on corresponding file plugin
 filetype indent on " use current filetype to indent
-set mouse=       " set whether to use mouse
-set clipboard=unnamedplus " 将系统的剪切板和vim共享
+set mouse=n       " set whether to use mouse
+set mousescroll=ver:1,hor:1 " mouse scroll interval
+set clipboard=unnamedplus " share clipboard with OS
 " noremap <leader>w :%s/\s\+$//<cr>:let @/=''<CR>
 " cache all the file edit history
 silent !mkdir -p $HOME/.config/nvim/tmp/backup
@@ -208,7 +206,7 @@ set splitbelow " behavior when split horizontally
 " ===
 " === Terminal Behaviors
 " ===
-autocmd TermOpen term://* startinsert   " 打开终端之后直接进入写入
+autocmd TermOpen term://* startinsert   " get input immediately after enter term
 " quick return to normal mode
 tnoremap <C-N> <C-\><C-N>
 tnoremap <C-O> <C-\><C-N>:q<CR>
@@ -414,7 +412,7 @@ Plug 'kdheepak/lazygit.nvim'
 Plug 'luochen1990/rainbow'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
-Plug 'sheerun/vim-polyglot'  " 设置语法高亮和自动缩进
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 
 " My beautiful colorscheme
 Plug 'sainnhe/everforest'
@@ -435,7 +433,6 @@ Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'itchyny/vim-cursorword'
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 
 " frontend enhance
 Plug 'ap/vim-css-color'
@@ -445,6 +442,8 @@ Plug 'othree/html5.vim'
 
 " tool things
 Plug 'mhinz/vim-startify'
+Plug 'glepnir/dashboard-nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'preservim/tagbar'
 Plug 'mbbill/undotree'
 Plug 'azadkuh/vim-cmus'
@@ -458,18 +457,22 @@ call plug#end()
 " let g:startify_custom_header =
 	" \ startify#pad(split(system('figlet -f 3d NEOVIM'), '\n'))
 let g:startify_custom_header = neovim_logo
-" 配合NerdTree的配置
+" pair with NerdTree
 " let g:startify_bookmarks = systemlist("cut -sd' ' -f 2- ~/.NERDTreeBookmarks")
 
+" ======================== dashboard setting =========================
+" lua require('user.dashboard')
 
 " ======================= file Navigation ====================
 " fzf setting
 " let g: fzf_preview_window = [ ' right:50% ' , ' ctrl-/ ' ]
-nnoremap <LEADER>f :Files<CR>
+nnoremap <LEADER>ff :Files<CR>
 " list Buffers
 nnoremap <LEADER>b :Buffers<CR>
+" history files
+nnoremap <LEADER>fh :History<CR>
 " ranger
-nnoremap <LEADER>r :RnvimrToggle<CR>
+nnoremap <LEADER>rg :RnvimrToggle<CR>
 
 " ===
 " === cmus control
@@ -500,6 +503,7 @@ let g:coc_global_extensions = [
 	\ 'coc-css',
 	\ 'coc-clangd',
 	\ 'coc-markmap',
+	\ 'coc-translator',
 	\ 'coc-tabnine',
 	\ 'coc-calc'
 	\ ]
@@ -531,8 +535,8 @@ inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+nmap <silent> g] <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -627,9 +631,8 @@ let g:cursorword = 0 " close the cursor word function by default
 
 " ========================= rainbow config =========================
 let g:rainbow_active = 1 " activate rainbow by default
-" 使rainbow在NERDTree中不起作用
 let g:rainbow_conf = {
-	\ 'guifgs': ['#ddffaa', '#7fbbb3', '#e67e80', '#fff9e8', '#d699b6'],
+	\ 'guifgs': ['#aadfaa', '#7fbbb3', '#e67e80', '#fff9e8', '#d699b6'],
 	\ 'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
 	\ 'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
 	\ 'separately': {
@@ -661,6 +664,7 @@ let g:airline_powerline_fonts = 1
 nnoremap tt :TagbarToggle<CR>
 let g:tagbar_width = 26
 let g:airline#extensions#tagbar#enabled = 0
+" config for markdown
 let g:tagbar_type_markdown = {
 	\ 'ctagstype' : 'markdown',
 	\ 'kinds' : [
@@ -688,15 +692,15 @@ function g:Undotree_CustomMap()
 endfunc
 
 
-" ====================
-" =  javascript配置  =
-" ====================
+" ========================
+" =  javascript setting  =
+" ========================
 let g:javascript_plugin_jsdoc = 1
 
 
-" +++++++++++++++++++++++
-" +  markdown的配置项   +
-" +++++++++++++++++++++++
+" =======================
+" =  markdown setting   =
+" =======================
 let g:instant_markdown_autostart = 0  " not to autostart
 let g:instant_markdown_mathjax = 1  " use latex lang
 

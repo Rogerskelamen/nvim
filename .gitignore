@@ -1,6 +1,9 @@
 *.swp
 .DS_Store
+
 after/
 lua/catppuccin/
 plugged/
 tmp/
+lua/user/dashboard/
+static/
