@@ -146,7 +146,7 @@ set nocompatible " turn off the side-effects of vi
 filetype on " turn on the filetype detect
 filetype plugin on " turn on corresponding file plugin
 filetype indent on " use current filetype to indent
-set mouse=n       " set whether to use mouse
+set mouse=       " set whether to use mouse
 set mousescroll=ver:1,hor:1 " mouse scroll interval
 set clipboard=unnamedplus " share clipboard with OS
 " noremap <leader>w :%s/\s\+$//<cr>:let @/=''<CR>
@@ -213,13 +213,12 @@ tnoremap <C-O> <C-\><C-N>:q<CR>
 " quick open a terminal
 noremap <LEADER><CR> :call OpenTerminal()<CR>
 func! OpenTerminal()
-	if exists("g:term_exist")
+	if bufexists(bufnr('term'))
 		:sp
 		:res -5
-		:buffer term
+		:b term
 		:normal i
 	else
-		let g:term_exist = 1
 		:sp
 		:res -5
 		:term
