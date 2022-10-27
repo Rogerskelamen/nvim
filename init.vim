@@ -442,8 +442,7 @@ Plug 'othree/html5.vim'
 
 " tool things
 Plug 'mhinz/vim-startify'
-Plug 'glepnir/dashboard-nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'glepnir/dashboard-nvim'
 Plug 'preservim/tagbar'
 Plug 'mbbill/undotree'
 Plug 'azadkuh/vim-cmus'
