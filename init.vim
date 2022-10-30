@@ -630,7 +630,7 @@ let g:cursorword = 0 " close the cursor word function by default
 " ========================= rainbow config =========================
 let g:rainbow_active = 1 " activate rainbow by default
 let g:rainbow_conf = {
-	\ 'guifgs': ['#aadfaa', '#7fbbb3', '#e67e80', '#fff9e8', '#d699b6'],
+	\ 'guifgs': ['#98dc98', '#7fbbb3', '#e67e80', '#fff9e8', '#d699b6'],
 	\ 'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
 	\ 'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
 	\ 'separately': {
