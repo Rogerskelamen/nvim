@@ -29,16 +29,13 @@ if empty(glob($HOME.'/.config/nvim/autoload/plug.vim'))
 endif
 
 
-"------------------------------
-" basic mapping, 空格为leader键
-"------------------------------
+"-----------------------------------
+" basic mapping, Space is leader key
+"-----------------------------------
 let mapleader=" "
 " noremap ; :
 noremap <LEADER>/ :nohlsearch<CR>
 
-"----------------------------
-" 普通键位映射
-"----------------------------
 " Save and quit
 nnoremap S :w<CR>
 noremap Q :q<CR>
@@ -118,7 +115,7 @@ noremap s <nop>
 " ============================ Editor behavior =======================
 let &t_ut=''
 set autochdir " always change directories
-set scrolloff=5  " 上下滚动间隔距离为5行
+set scrolloff=5  " scroll interval is 5 lines
 set exrc
 set secure
 set list
