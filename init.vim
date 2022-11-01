@@ -599,7 +599,7 @@ let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " cust
 let g:lazygit_floating_window_use_plenary = 0 " use plenary.nvim to manage floating window if available
 let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not installed
 " setup mapping to call :LazyGit
-nnoremap <silent> <leader>g :LazyGit<CR>
+nnoremap <silent> <leader>g :LazyGitCurrentFile<CR>
 
 
 " ======================== javascript-libraries-syntax config =========================

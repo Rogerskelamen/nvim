@@ -114,6 +114,7 @@
 	},
 	// 自检时设置的icon
 	// "diagnostic.errorSign": "\uf467",
+	// "diagnostic.errorSign": "\u27f4",
 	"diagnostic.errorSign": "\u279C",
 	"diagnostic.warningSign": "\uf071",
 	"diagnostic.infoSign": "\uf129",
