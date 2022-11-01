@@ -36,6 +36,8 @@
 		"v": "open:vsplit",
 		"D": "delete",
 		"H": "toggleHidden",
+		"J": false,
+		"K": false,
 		"u": "gotoParent",
 		"h": false,
 		"l": false

@@ -5,5 +5,3 @@ after/
 lua/catppuccin/
 plugged/
 tmp/
-lua/user/dashboard/
-static/
