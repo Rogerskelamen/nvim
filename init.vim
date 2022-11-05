@@ -209,8 +209,8 @@ tnoremap <C-N> <C-\><C-N>
 tnoremap <C-O> <C-\><C-N>:q<CR>
 " quick open a terminal
 noremap <LEADER><CR> :call OpenTerminal()<CR>
-func! OpenTerminal()
-	if bufexists(bufnr('term'))
+func! OpenTerminal() abort
+	if bufexists(bufnr('zsh'))
 		:sp
 		:res -5
 		:b term
@@ -652,7 +652,7 @@ au FileType php      let b:AutoPairs = AutoPairsDefine({'<?' : '?>', '<?php': '?
 
 
 " ======================== eleline bar config =========================
-let g:airline_powerline_fonts = 1
+let g:eleline_powerline_fonts = 1
 
 
 " ======================== Tagbar =========================
