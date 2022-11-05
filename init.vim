@@ -442,6 +442,7 @@ Plug 'mhinz/vim-startify'
 Plug 'preservim/tagbar'
 Plug 'mbbill/undotree'
 Plug 'azadkuh/vim-cmus'
+Plug 'dstein64/vim-startuptime'
 Plug 'yianwillis/vimcdoc' " vim Chinese Document
 " Plug 'w0rp/ale'
 
