@@ -15,7 +15,7 @@
 source $HOME/.config/nvim/logo.vim
 
 " correct checkhealth
-let g:ruby_host_prog = '/opt/homebrew/lib/ruby/gems/3.1.0/bin/neovim-ruby-host'
+" let g:ruby_host_prog = '/opt/homebrew/lib/ruby/gems/3.1.0/bin/neovim-ruby-host'
 let g:loaded_perl_provider = 0
 
 
@@ -210,7 +210,7 @@ tnoremap <C-O> <C-\><C-N>:q<CR>
 " quick open a terminal
 noremap <LEADER><CR> :call OpenTerminal()<CR>
 func! OpenTerminal() abort
-	if bufexists(bufnr('zsh'))
+	if bufexists(bufnr('fish'))
 		:sp
 		:res -5
 		:b term
