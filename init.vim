@@ -38,10 +38,10 @@ noremap <LEADER>/ :nohlsearch<CR>
 
 " Save and quit
 nnoremap S :w<CR>
-noremap Q :q<CR>
-noremap <C-q> :qa<CR>
+nnoremap Q :q<CR>
+nnoremap <C-q> :qa<CR>
 
-" quick move
+" Quick move
 noremap H 5h
 noremap J 5j
 noremap K 5k
@@ -51,7 +51,12 @@ noremap B 5b
 noremap <expr>m col(".")==col("$")-1 ? "^" : "$"
 vnoremap <expr>m col(".")==col("$")-1 ? "^" : "$h"
 
-" windows set
+" Move text up and down
+xnoremap <C-j> :move '>+1<CR>gv-gv
+xnoremap <C-k> :move '<-2<CR>gv-gv
+vnoremap p "_dP
+
+" Windows set
 noremap <LEADER>l <C-w>l
 noremap <LEADER>k <C-w>k
 noremap <LEADER>h <C-w>h
@@ -74,7 +79,7 @@ noremap srv <C-w>b<C-w>H
 noremap <LEADER>rc :e $MYVIMRC<CR>
 noremap <LEADER>sc :set spell!<CR>
 
-" tab set
+" Tab set
 noremap tu :tabe<CR>j
 noremap th :-tabnext<CR>
 noremap tl :+tabnext<CR>
@@ -82,34 +87,34 @@ noremap tmh :-tabmove<CR>
 noremap tml :+tabmove<CR>
 
 " Copy to system clipboard
-vnoremap Y "+y
+" vnoremap Y "+y
 
-" visual make to line end
+" Visual make to line end
 noremap <silent> \v v$h
 
 " Indentation
 nnoremap < <<
 nnoremap > >>
+vnoremap < <gv
+vnoremap > >gv
 
-" clipboard history
+" Clipboard history
 nnoremap <silent> <LEADER>y  :<C-u>CocList -A --normal yank<cr>
 
 " Folding
 noremap <silent> <LEADER>o za
 
-" find and replace
+" Find and replace
 noremap \s :%s//g<left><left>
-
-" close the neovim with everything saved
-noremap <C-c> ZZ
 
 " Press space twice to jump to the next '<++>' and edit it
 " noremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
 " Press space twice to quickly get into the popup window
 noremap <LEADER><LEADER> <C-w><C-w>
 
-" Disable the default s key
+" Disable the default s and leader key
 noremap s <nop>
+noremap <Space> <nop>
 
 
 " ============================ Editor behavior =======================
