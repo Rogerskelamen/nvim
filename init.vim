@@ -52,8 +52,8 @@ noremap <expr>m col(".")==col("$")-1 ? "^" : "$"
 vnoremap <expr>m col(".")==col("$")-1 ? "^" : "$h"
 
 " Move text up and down
-xnoremap <C-j> :move '>+1<CR>gv-gv
-xnoremap <C-k> :move '<-2<CR>gv-gv
+vnoremap <C-j> :move '>+1<CR>gv-gv
+vnoremap <C-k> :move '<-2<CR>gv-gv
 vnoremap p "_dP
 
 " Windows set
@@ -664,7 +664,6 @@ let g:eleline_powerline_fonts = 1
 " ======================== Tagbar =========================
 nnoremap tt :TagbarToggle<CR>
 let g:tagbar_width = 26
-let g:airline#extensions#tagbar#enabled = 0
 " config for markdown
 let g:tagbar_type_markdown = {
 	\ 'ctagstype' : 'markdown',
