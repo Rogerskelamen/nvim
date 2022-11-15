@@ -296,13 +296,6 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " set the normal text backgroud to none(which makes transparency)
 autocmd Vimenter * hi Normal guibg=NONE ctermbg=NONE
 
-" redefine some signs colorscheme
-" autocmd Vimenter * hi ErrorMsg guibg=NONE guifg=#ff6d67
-" autocmd Vimenter * hi CocErrorSign guifg=#ff6d67
-" autocmd Vimenter * hi CocErrorFloat guifg=#ff6d67
-" autocmd Vimenter * hi CocInfoSign guibg=#353b45
-" autocmd Vimenter * hi CocWarningSign guifg=#d1cd66
-
 " background scheme
 set background=dark " for the dark version
 " set background=light " for the light version
