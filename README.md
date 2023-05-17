@@ -1,6 +1,6 @@
 # the Usage of My Neovim
 
-<u>*Now I'm using [lua version](https://github.com/Rogerskelamen/nvim.lua) for my neovim configuration and management :)*</u>
+***Notice!! Now I'm using [lua version](https://github.com/Rogerskelamen/nvim.lua) for my neovim configuration and management :)***
 
 > If you want to copy My neovim configuration, this readme tutorial may help you a lot.
 
